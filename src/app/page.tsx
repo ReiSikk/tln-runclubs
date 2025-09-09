@@ -1,19 +1,14 @@
-import { LucideSun } from "lucide-react";
 import ClubListItem from "./components/ClubListItem";
+import WeatherWidget from "./components/WeatherWidget";
 import styles from "./page.module.css";
 import Image from "next/image";
 
 export default function Home() {
+
   return (
     <div className={styles.page}>
       <nav className={styles.siteNav}>
-        <div className={styles.weatherWidget}>
-          {/* Weather widget will go here */}
-          <span>
-            Tue, 12.09  16C Sunny
-          </span>  
-          <LucideSun size={16} />
-        </div>
+        <WeatherWidget />
       </nav>
       <header className={styles.header}>
         <h1 className={`${styles.siteTitle}`}>Tallinn Run Clubs</h1>

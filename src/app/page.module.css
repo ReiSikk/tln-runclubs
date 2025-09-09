@@ -175,8 +175,7 @@
   border-radius: 16px;
   max-width: 100%;
   height: auto;
-  align-self: flex-end;
-
+  margin-left: auto;
 }
 
 
