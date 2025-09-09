@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Manrope, Kode_Mono } from "next/font/google";
 import "./globals.css";
+import Head from "next/head";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -9,6 +10,16 @@ const geistSans = Geist({
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const manrope = Manrope({
+  variable: "--font-manrope",
+  subsets: ["latin"],
+});
+
+const kodeMono = Kode_Mono({
+  variable: "--font-kode-mono",
   subsets: ["latin"],
 });
 
@@ -24,7 +35,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+        <title>Tallinn Run Clubs</title>
+        <meta name="description" content="Find running clubs in Tallinn, Estonia" />
+        <meta name="keywords" content="running, clubs, Tallinn, Estonia, fitness, health, community" />
+        <meta name="author" content="Rei Sikk" />
+        <meta property="og:title" content="Tallinn Run Clubs" />
+      </Head>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} ${kodeMono.variable}`}>
         {children}
       </body>
     </html>

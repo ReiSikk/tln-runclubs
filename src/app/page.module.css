@@ -6,162 +6,187 @@
   --button-primary-hover: #383838;
   --button-secondary-hover: #f2f2f2;
 
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
-  align-items: center;
-  justify-items: center;
   min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
+  padding-inline: 80px;
+  padding-block: 32px;
   font-family: var(--font-geist-sans);
 }
 
-@media (prefers-color-scheme: dark) {
-  .page {
-    --gray-rgb: 255, 255, 255;
-    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
-    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
+/*
+   Site top navigation and weather widget
+   ========================================================================== */
 
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-  }
+.siteNav {
 }
-
-.main {
+.weatherWidget {
   display: flex;
-  flex-direction: column;
-  gap: 32px;
-  grid-row-start: 2;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-end;
+  font-family: var(--font-kode-mono);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--bg-light);
+  margin-left: auto;
 }
 
-.main ol {
-  font-family: var(--font-geist-mono);
-  padding-left: 0;
-  margin: 0;
-  font-size: 14px;
-  line-height: 24px;
-  letter-spacing: -0.01em;
-  list-style-position: inside;
+/*
+   Site header
+   ========================================================================== */
+
+.header {
 }
 
-.main li:not(:last-of-type) {
-  margin-bottom: 8px;
-}
+/*
+   Site main content
+   ========================================================================== */
 
-.main code {
-  font-family: inherit;
-  background: var(--gray-alpha-100);
-  padding: 2px 4px;
-  border-radius: 4px;
+.siteTitle {
+  font-family: var(--font-manrope);
+  font-size: clamp(4rem, 6vw, 6.4rem);
   font-weight: 600;
 }
-
-.ctas {
-  display: flex;
-  gap: 16px;
+.main {
 }
-
-.ctas a {
-  appearance: none;
-  border-radius: 128px;
-  height: 48px;
-  padding: 0 20px;
-  border: 1px solid transparent;
-  transition:
-    background 0.2s,
-    color 0.2s,
-    border-color 0.2s;
+.mainSection {
+  padding-top: 32px;
+}
+.mainSection__main {
+}
+.mainSection__title {
+}
+.clubsList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 100px;
+}
+.clubsList__item {
+  position: relative;
   cursor: pointer;
+  transition: background-color .2s ease, color .2s ease;
+    background:
+    linear-gradient(var(--fg), var(--fg)) top left/6px 1px no-repeat,
+    linear-gradient(var(--fg), var(--fg)) top left/1px 6px no-repeat,
+    linear-gradient(var(--fg), var(--fg)) top right/6px 1px no-repeat,
+    linear-gradient(var(--fg), var(--fg)) top right/1px 6px no-repeat,
+    linear-gradient(var(--fg), var(--fg)) bottom left/6px 1px no-repeat,
+    linear-gradient(var(--fg), var(--fg)) bottom left/1px 6px no-repeat,
+    linear-gradient(var(--fg), var(--fg)) bottom right/6px 1px no-repeat,
+    linear-gradient(var(--fg), var(--fg)) bottom right/1px 6px no-repeat;
+
+    &:hover {
+      background-color: var(--bg-light);
+      color: var(--bg);
+
+      a {
+        background: var(--fg);
+        color: var(--bg);
+
+        &:hover {
+          background: var(--bg);
+          color: var(--fg);
+        }
+      }
+    }
+}
+.item__inner {
+  padding: 12px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 500;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.item__image {
+  flex-shrink: 0;
+  border-radius: 2px;
+  background: #ccc;
+}
+.item__details {
+  flex-grow: 1;
+  p {
+    font-size: 1.4rem;
+  }
+}
+.item__title {
+  font-weight: 400;
+  font-size: 1.8rem;
+  margin-bottom: 16px;
+}
+.item__area {
+}
+.item__days {
+}
+.mainSection__side {
+  padding-left: 32px;
+}
+.side__title {
+}
+.side__input {
+  width: 100%;
+  padding: 14px 24px;
+  font-size: 1.4rem;
+  font-weight: 400;
+  border: 1px solid var(--fg);
+  border-radius: 200px;
+  margin-block: 24px 16px;
+  background: var(--bg);
+
+  &:focus {
+    outline: 1.5px solid var(--fg);
+  }
+}
+.allClubsList {
+}
+.allClubsList__item {
 }
 
-a.primary {
-  background: var(--foreground);
-  color: var(--background);
-  gap: 8px;
+
+/*
+   Cta section
+   ========================================================================== */
+.ctaSection {
+  margin-block: 100px;
+  padding: 24px;
+  background: var(--bg-light);
+  border-radius: 40px;
+  align-items: stretch;
+
+}
+.ctaSection__main {
+  display: flex;
+  flex-direction: column;
+}
+.ctaSection__title {
+  color: var(--bg);
+  max-width: 488px;
+  text-transform: uppercase;
+  margin-bottom: 64px;
+  line-height: 1.2;
+  padding-right: 40px;
+}
+.ctaSection__btn {
+  margin-top: auto;
+  max-width: fit-content;
+}
+.ctaSection__side {
+  display: flex;
+}
+.ctaSection__image {
+  border-radius: 16px;
+  max-width: 100%;
+  height: auto;
+  align-self: flex-end;
+
 }
 
-a.secondary {
-  border-color: var(--gray-alpha-200);
-  min-width: 158px;
-}
+
+/*
+   Site footer
+   ========================================================================== */
 
 .footer {
-  grid-row-start: 3;
-  display: flex;
-  gap: 24px;
-}
-
-.footer a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.footer img {
-  flex-shrink: 0;
 }
 
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
-
-  .footer a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-}
-
-@media (max-width: 600px) {
-  .page {
-    padding: 32px;
-    padding-bottom: 80px;
-  }
-
-  .main {
-    align-items: center;
-  }
-
-  .main ol {
-    text-align: center;
-  }
-
-  .ctas {
-    flex-direction: column;
-  }
-
-  .ctas a {
-    font-size: 14px;
-    height: 40px;
-    padding: 0 16px;
-  }
-
-  a.secondary {
-    min-width: auto;
-  }
-
-  .footer {
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
 }

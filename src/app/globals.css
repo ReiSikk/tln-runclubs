@@ -1,13 +1,15 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #47585c;
+  --bg-light: #C8D5BB;
+  --fg: #ffffff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  font-size: 62.5%;
+  font-family: sans-serif;
+  /* disable unwanted auto-enlargement of small text in mobile Webkit and Windows Mobile */
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 html,
@@ -17,8 +19,9 @@ body {
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
+  color: var(--fg);
+  background: var(--bg);
+  scroll-behavior: smooth;
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -30,9 +33,218 @@ body {
   margin: 0;
 }
 
+h1,
+.h1 {
+  font-weight: 700;
+  line-height: 1.2;
+  font-size: clamp(4.8rem, 6vw, 6.4rem);
+}
+h2,
+.h2 {
+  font-weight: 600;
+  line-height: 1.3;
+  font-size: clamp(3.2rem, 5vw, 4.8rem);
+}
+h3,
+.h3 {
+  font-weight: 600;
+  line-height: 1.4;
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
+}
+
+p {
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
 a {
   color: inherit;
   text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+/* Buttons */
+.btn_main {
+  display: inline-block;
+  padding: 15px 24px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  min-width: 200px;
+  border: none;
+  border-radius: 200px;
+  background: var(--bg);
+  color: var(--fg);
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+
+  &:hover {
+    background: var(--bg-light);
+    color: var(--bg);
+    border: 1px solid var(--bg);
+  }
+}
+.btn_small {
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 1.4rem;
+  font-weight: 500;
+  border: 1.5px solid var(--fg);
+  border-radius: 200px;
+  background: transparent;
+  color: var(--fg);
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Container */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-inline: auto;
+  width: 100%;
+	position: relative;
+
+	@media only screen and (min-width: 768px) {
+	}
+	@media only screen and (min-width: 1024px) {
+    }
+
+    &.block {
+        display: block;
+    }
+}
+
+/*
+    Grid system
+   ========================================================================== */
+
+.col-m-1 {
+  width: 8.333333%;
+}
+.col-m-2 {
+  width: 16.666667%;
+}
+.col-m-3 {
+  width: 25%;
+}
+.col-m-4 {
+  width: 33.333333%;
+}
+.col-m-5 {
+  width: 41.666667%;
+}
+.col-m-6 {
+  width: 50%;
+}
+.col-m-7 {
+  width: 58.333333%;
+}
+.col-m-8 {
+  width: 66.666667%;
+}
+.col-m-9 {
+  width: 75%;
+}
+.col-m-10 {
+  width: 83.333333%;
+}
+.col-m-11 {
+  width: 91.666667%;
+}
+.col-m-12 {
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .col-t-1 {
+    width: 8.333333%;
+  }
+  .col-t-2 {
+    width: 16.666667%;
+  }
+  .col-t-3 {
+    width: 25%;
+  }
+  .col-t-4 {
+    width: 33.333333%;
+  }
+  .col-t-5 {
+    width: 41.666667%;
+  }
+  .col-t-6 {
+    width: 50%;
+  }
+  .col-t-7 {
+    width: 58.333333%;
+  }
+  .col-t-8 {
+    width: 66.666667%;
+  }
+  .col-t-9 {
+    width: 75%;
+  }
+  .col-t-10 {
+    width: 83.333333%;
+  }
+  .col-t-11 {
+    width: 91.666667%;
+  }
+  .col-t-12 {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .col-d-1 {
+    width: 8.333333%;
+  }
+  .col-d-2 {
+    width: 16.666667%;
+  }
+  .col-d-3 {
+    width: 25%;
+  }
+  .col-d-4 {
+    width: 33.333333%;
+  }
+  .col-d-5 {
+    width: 41.666667%;
+  }
+  .col-d-6 {
+    width: 50%;
+  }
+  .col-d-7 {
+    width: 58.333333%;
+  }
+  .col-d-8 {
+    width: 66.666667%;
+  }
+  .col-d-9 {
+    width: 75%;
+  }
+  .col-d-10 {
+    width: 83.333333%;
+  }
+  .col-d-11 {
+    width: 91.666667%;
+  }
+  .col-d-12 {
+    width: 100%;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
