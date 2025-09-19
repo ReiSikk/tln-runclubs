@@ -26,8 +26,12 @@
   font-family: var(--font-kode-mono);
   font-size: 1.4rem;
   font-weight: 700;
-  color: var(--bg-light);
+  color: var(--fg);
   margin-left: auto;
+  width: fit-content;
+  padding: 8px;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
 }
 
 /*
@@ -76,7 +80,7 @@
     linear-gradient(var(--fg), var(--fg)) bottom right/1px 6px no-repeat;
 
     &:hover {
-      background-color: var(--bg-light);
+      background-color: var(--accent);
       color: var(--bg);
 
       a {
@@ -147,7 +151,7 @@
 .ctaSection {
   margin-block: 100px;
   padding: 24px;
-  background: var(--bg-light);
+  background: var(--accent);
   border-radius: 40px;
   align-items: stretch;
 

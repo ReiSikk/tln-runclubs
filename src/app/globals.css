@@ -1,6 +1,8 @@
 :root {
-  --bg: #47585c;
-  --bg-light: #C8D5BB;
+  /* --bg: #47585c; */
+  --bg: #2A3233;
+  /* --accent: #C8D5BB; */
+  --accent: #F0FFA0;
   --fg: #ffffff;
 }
 
@@ -89,7 +91,7 @@ ol {
   border: 1px solid transparent;
 
   &:hover {
-    background: var(--bg-light);
+    background: var(--accent);
     color: var(--bg);
     border: 1px solid var(--bg);
   }

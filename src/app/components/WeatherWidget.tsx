@@ -6,7 +6,7 @@ import styles from "../page.module.css";
 interface WeatherData {
   city: string;
   current: {
-    temp_c: number;
+    windchill_c: number;
     condition: { text: string; icon?: string };
     last_updated?: string;
   };
@@ -16,7 +16,7 @@ export default function WeatherWidget() {
   const [data, setData] = useState<WeatherData | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
-  console.log("data", data);
+  // console.log("data", data);
 
   useEffect(() => {
     async function fetchData() {
@@ -41,7 +41,7 @@ export default function WeatherWidget() {
 
   return (
     <div className={styles.weatherWidget}>
-      {data.city}: {data.current.temp_c}°C {data.current.condition.text}
+      Feels like {data.current.windchill_c}°C | {data.current.condition.text}
       <Image
         src={data.current.condition.icon ? `https:${data.current.condition.icon}` : "https://placehold.co/16x16"}
         alt={data.current.condition.text}

@@ -1,4 +1,5 @@
 import ClubListItem from "./components/ClubListItem";
+import { TodayClubsList } from "./components/TodaysClubsList";
 import WeatherWidget from "./components/WeatherWidget";
 import styles from "./page.module.css";
 import Image from "next/image";
@@ -15,16 +16,34 @@ export default function Home() {
       </header>
       <main className={`${styles.main}`}>
         <section className={`${styles.mainSection} container`}>
-          <div className={`${styles.mainSection__main} col-m-12 col-t-8 col-d-8`}>
+          <div className={`${styles.mainSection__main} col-m-12 col-t-6 col-d-4`}>
           <h2 className={`${styles.mainSection__title} h3`}>
             Clubs running in Tallinn today
           </h2>
           <ul className={styles.clubsList}>
-            <ClubListItem />
-            <ClubListItem />
+            {/* <ClubListItem /> */}
+            {/* <ClubListItem /> */}
+            <TodayClubsList clubs={[
+              {
+                id: '1',
+                name: 'Morning Joggers',
+                time: '6:30 AM - 7:30 AM',
+                location: 'Kadriorg Park',
+                participants: 15,
+                status: 'starting-soon',
+              },
+              {
+                id: '2',
+                name: 'City Runners',
+                time: '7:00 AM - 8:00 AM',
+                location: 'Freedom Square',
+                participants: 20,
+                status: 'in-progress',
+              },
+            ]} />
           </ul>
           </div>
-          <aside className={`${styles.mainSection__side} col-m-12 col-t-4 col-d-4`}>
+          <aside className={`${styles.mainSection__side} col-m-12 col-t-6 col-d-8`}>
             <h3 className={`${styles.side__title} h3`}>All run clubs</h3>
             <input 
               type="text" 
