@@ -7,7 +7,7 @@
   --button-secondary-hover: #f2f2f2;
 
   min-height: 100svh;
-  padding-inline: 80px;
+  padding-inline: clamp(24px, 6vw, 80px);
   padding-block: 32px;
   font-family: var(--font-geist-sans);
 }
@@ -57,10 +57,7 @@
 .mainSection__title {
 }
 .clubsList {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  margin-top: 100px;
+  margin-top: 24px;
 }
 .clubsList__item {
   position: relative;
@@ -118,7 +115,12 @@
 .item__days {
 }
 .mainSection__side {
-  padding-left: 32px;
+  margin-top: 48px;
+
+  @media only screen and (min-width: 768px) and (max-width: 1024px), only screen and (min-width: 1025px) {
+    margin-top: 0;
+    padding-left: clamp(32px, 7vw, 64px);
+  }
 }
 .side__title {
   margin-bottom: 24px;
@@ -224,27 +226,43 @@
 .ctaSection__main {
   display: flex;
   flex-direction: column;
+  padding-right: 40px;
 }
 .ctaSection__title {
   color: var(--dark);
   max-width: 488px;
   text-transform: uppercase;
-  margin-bottom: 64px;
-  line-height: 1.2;
   padding-right: 40px;
+  line-height: 1.1;
+}
+.ctaSection__text {
+  margin-top: clamp(6px, 2vw, 16px);
+  max-width: 488px;
+  color: var(--dark);
+
 }
 .ctaSection__btn {
   margin-top: auto;
   max-width: fit-content;
+  margin-top: 16px;
+  @media only screen and (min-width: 768px) and (max-width: 1024px), only screen and (min-width: 1025px) {
+      margin-top: 0;
+  }
 }
 .ctaSection__side {
   display: flex;
+  margin-top: 24px;
+  @media only screen and (min-width: 768px) and (max-width: 1024px), only screen and (min-width: 1025px) {
+      margin-top: 0;
+  }
 }
 .ctaSection__image {
   border-radius: 16px;
-  max-width: 100%;
-  height: auto;
   margin-left: auto;
+  max-width: 614px;
+  max-height: 416px;
+  object-fit: cover;
+  width: 100%;
 }
 
 

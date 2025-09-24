@@ -1,5 +1,6 @@
 import AllClubsListItem from "./components/AllClubsListItem";
 import ClubListItem from "./components/ClubListItem";
+import CtaSection from "./components/CtaSection";
 import SearchBar from "./components/SearchBar";
 import { TodayClubsList } from "./components/TodaysClubsList";
 import WeatherWidget from "./components/WeatherWidget";
@@ -22,9 +23,7 @@ export default function Home() {
           <h2 className={`${styles.mainSection__title} h3`}>
             Clubs running in Tallinn today
           </h2>
-          <ul className={styles.clubsList}>
-            {/* <ClubListItem /> */}
-            {/* <ClubListItem /> */}
+          <div className={styles.clubsList}>
             <TodayClubsList clubs={[
               {
                 id: '1',
@@ -33,6 +32,7 @@ export default function Home() {
                 location: 'Kadriorg Park',
                 participants: 15,
                 status: 'starting-soon',
+                days: ['Mon', 'Wed', 'Fri'],
               },
               {
                 id: '2',
@@ -41,9 +41,10 @@ export default function Home() {
                 location: 'Freedom Square',
                 participants: 20,
                 status: 'in-progress',
+                days: ['Tue', 'Thu'],
               },
             ]} />
-          </ul>
+          </div>
           </div>
           <aside className={`${styles.mainSection__side} col-m-12 col-t-6 col-d-8`}>
             <h3 className={`${styles.side__title} h3`}>All run clubs</h3>
@@ -56,23 +57,7 @@ export default function Home() {
             </ul>
           </aside>
         </section>
-        <section className={`${styles.ctaSection} container`}>
-            <div className={`${styles.ctaSection__main} col-m-12 col-t-6 col-d-6`}>
-              <h4 className={`${styles.ctaSection__title} h2`}>Know of a run club we haven't listed?</h4>
-              <p className={`${styles.ctaSection__btn} btn_main`}>Let us know!</p>
-            </div>
-            <div className={`${styles.ctaSection__side} col-m-12 col-t-6 col-d-6`}>
-              {/* //TODO: Remove unpotimized prop */}
-              <Image
-                unoptimized
-                src="https://placehold.co/389x339"
-                alt="Join a running club"
-                width={389}
-                height={339}
-                className={styles.ctaSection__image}
-              />
-            </div>
-          </section>
+        <CtaSection />
       </main>
       <footer className={styles.footer}>
       </footer>
