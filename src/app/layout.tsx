@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Manrope, Kode_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Work_Sans } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
 
@@ -13,13 +13,8 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const manrope = Manrope({
-  variable: "--font-manrope",
-  subsets: ["latin"],
-});
-
-const kodeMono = Kode_Mono({
-  variable: "--font-kode-mono",
+const workSans = Work_Sans({
+  variable: "--font-work-sans",
   subsets: ["latin"],
 });
 
@@ -44,7 +39,7 @@ export default function RootLayout({
         <meta name="author" content="Rei Sikk" />
         <meta property="og:title" content="Tallinn Run Clubs" />
       </Head>
-      <body className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} ${kodeMono.variable}`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${workSans.variable}`}>
         {children}
       </body>
     </html>

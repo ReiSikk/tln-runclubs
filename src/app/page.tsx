@@ -1,4 +1,5 @@
 import ClubListItem from "./components/ClubListItem";
+import SearchBar from "./components/SearchBar";
 import { TodayClubsList } from "./components/TodaysClubsList";
 import WeatherWidget from "./components/WeatherWidget";
 import styles from "./page.module.css";
@@ -12,7 +13,7 @@ export default function Home() {
         <WeatherWidget />
       </nav>
       <header className={styles.header}>
-        <h1 className={`${styles.siteTitle}`}>Tallinn Run Clubs</h1>
+        <h1 className={`${styles.siteTitle} italic uppercase`}>Tln Run Clubs</h1>
       </header>
       <main className={`${styles.main}`}>
         <section className={`${styles.mainSection} container`}>
@@ -45,13 +46,7 @@ export default function Home() {
           </div>
           <aside className={`${styles.mainSection__side} col-m-12 col-t-6 col-d-8`}>
             <h3 className={`${styles.side__title} h3`}>All run clubs</h3>
-            <input 
-              type="text" 
-              name="search" 
-              id="search" 
-              placeholder="Search clubs..." 
-              className={styles.side__input}
-            />
+            <SearchBar />
             <ul className={styles.allClubsList}>
               <li className={styles.allClubsList__item}>
                 icon here
