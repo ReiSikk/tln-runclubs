@@ -1,3 +1,4 @@
+import AllClubsListItem from "./components/AllClubsListItem";
 import ClubListItem from "./components/ClubListItem";
 import SearchBar from "./components/SearchBar";
 import { TodayClubsList } from "./components/TodaysClubsList";
@@ -47,14 +48,11 @@ export default function Home() {
           <aside className={`${styles.mainSection__side} col-m-12 col-t-6 col-d-8`}>
             <h3 className={`${styles.side__title} h3`}>All run clubs</h3>
             <SearchBar />
-            <ul className={styles.allClubsList}>
-              <li className={styles.allClubsList__item}>
-                icon here
-                <span>
-                  Example Run Club
-                </span>
-                <a href="#" type="button" className="btn_small" aria-label="Go to run club page to see more info">View</a>
-              </li>
+            <ul className={`${styles.allClubsList} list-block`}>
+              <AllClubsListItem />
+              <AllClubsListItem />
+              <AllClubsListItem />
+              <AllClubsListItem />
             </ul>
           </aside>
         </section>

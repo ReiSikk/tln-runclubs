@@ -1,8 +1,8 @@
 :root {
-  --dark: #100F0E;
-  --accent: #E2572C;
-  --white: #FFFAF0;
-  --cream: #FAF3E0;
+  --dark: #100f0e;
+  --accent: #e2572c;
+  --white: #fffaf0;
+  --cream: #faf3e0;
 }
 
 html {
@@ -90,6 +90,11 @@ p {
   font-size: 1.2rem;
   font-weight: 400;
 }
+.txt-btn {
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
 .sr-only {
   position: absolute;
   width: 1px;
@@ -114,6 +119,34 @@ ol {
   margin: 0;
 }
 
+/*
+    Layout helpers
+   ========================================================================== */
+.fp {
+  display: flex;
+  flex-wrap: wrap;
+}
+.fp-col {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.list-block {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  display: block;
+}
+.list-flex {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
 
 /*
    Buttons
@@ -208,16 +241,16 @@ ol {
   align-items: flex-start;
   margin-inline: auto;
   width: 100%;
-	position: relative;
+  position: relative;
 
-	@media only screen and (min-width: 768px) {
-	}
-	@media only screen and (min-width: 1024px) {
-    }
+  @media only screen and (min-width: 768px) {
+  }
+  @media only screen and (min-width: 1024px) {
+  }
 
-    &.block {
-        display: block;
-    }
+  &.block {
+    display: block;
+  }
 }
 
 /*

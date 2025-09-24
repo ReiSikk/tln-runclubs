@@ -121,6 +121,7 @@
   padding-left: 32px;
 }
 .side__title {
+  margin-bottom: 24px;
 }
 /* Search bar */
 .searchField {
@@ -158,8 +159,54 @@
 
 
 .allClubsList {
+  margin-top: 24px;
 }
 .allClubsList__item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding-inline: 6px;
+  padding-block: 6px;
+  border-radius: 12px;
+  transition: background-color 0.2s ease-out, color 0.2s ease-out;
+  cursor: pointer;
+
+  span {
+    font-size: 1.6rem;
+    font-weight: 400;
+    padding-left: 8px;
+  }
+
+  &:hover {
+    background-color: var(--cream);
+    color: var(--dark);
+  }
+
+  &:not(:first-child) {
+    margin-top: 8px;
+  }
+}
+.allClubsList__image {
+  border-radius: 6px;
+}
+.allClubsList__btn {
+  margin-left: auto;
+  border: none;
+  background: var(--accent);
+  color: var(--dark);
+  border-radius: 6px;
+  padding-block: 8px;
+  padding-inline: 14px;
+
+    &::before {
+      content: " ";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+  }
+
 }
 
 

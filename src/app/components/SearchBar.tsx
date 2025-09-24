@@ -14,8 +14,8 @@ function SearchBar() {
         className={styles.searchField__icon} 
         aria-hidden="true" 
         focusable="false"
-        width="16"
-        height="16"
+        width="20"
+        height="20"
     />
     <input
       id="clubs-search"
