@@ -42,6 +42,18 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} ${workSans.variable}`}>
         {children}
       </body>
+      <footer className="siteFooter container">
+        <div className="sitefooter__main fp">
+          <h5 className="siteFooter__title h1 uppercase italic">Tln Run Clubs</h5>
+          <p className="siteFooter__text">
+            Buy me a coffee.
+            This helps cover hosting & domain costs. Thank you 🙏
+          </p>
+        </div>
+        <div className="siteFooter__side">
+          <p className="txt-label txt-small">Idea, design & code by Rei Sikk</p>
+        </div>
+      </footer>
     </html>
   );
 }

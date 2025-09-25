@@ -5,28 +5,21 @@
 }
 
 .todayClubsList__item {
-  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);   /* hide: ease-in */
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);  /* show: ease-out */
-  --dur-op: 280ms;
-  --dur-tr: 360ms;
   position: relative;
   background: var(--white);
   color: var(--dark);
   border-radius: 8px;
   padding: 16px;
   cursor: pointer;
-  transition: .2s ease;
+  transition: 0.2s ease;
   overflow: hidden;
-
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      background: var(--accent);
-
       .todayClubsList__link {
         opacity: 1;
         transform: translateX(0);
-        transition: opacity var(--dur-op) var(--ease-out), transform var(--dur-tr) var(--ease-out);
+        transition: opacity 0.2s ease-in-out, transform 0.3s ease-in-out;
       }
     }
   }
@@ -35,10 +28,16 @@
 .todayClubsList__header {
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 12px;
+  margin-bottom: 24px;
+
+  @media only screen and (min-width: 768px) and (max-width: 1024px), only screen and (min-width: 1025px) {
+      margin-bottom: 12px;
+  }
 }
 
 .todayClubsList__title {
+  padding-right: 16px;
+  margin-bottom: 4px;
 }
 
 .todayClubsList__status {
@@ -49,33 +48,25 @@
   font-weight: 500;
   line-height: 1;
   border: 1px solid transparent;
-box-shadow: 0 2px 4px -1px rgb(0 0 0 / 16%), 0 4px 5px 0 rgb(0 0 0 / 11%), 0 1px 10px 0 rgb(0 0 0 / 10%);
+  box-shadow: 0 2px 4px -1px rgb(0 0 0 / 16%), 0 4px 5px 0 rgb(0 0 0 / 11%), 0 1px 10px 0 rgb(0 0 0 / 10%);
 }
 
 .todayClubsList__status--startingSoon {
-  background-color: #FFF1B2; /* soft amber on cream */
-  color: #4a3b00;            /* dark amber text (AA on #FFF1B2) */
+  background-color: #fff1b2;
+  color: #4a3b00;
   border-color: #e5c766;
 }
 
 .todayClubsList__status--inProgress {
-  background-color: #D6F4E3; /* mint */
-  color: #065f46;            /* deep teal text (AA on mint) */
+  background-color: #d6f4e3;
+  color: #065f46;
   border-color: #34d399;
 }
 
 .todayClubsList__status--upcoming {
-  background-color: #E8EEF2; /* cool slate */
-  color: #334155;            /* slate-700 text (AA on slate) */
+  background-color: #e8eef2;
+  color: #334155;
   border-color: #94a3b8;
-}
-
-/* Keep pill readable when card hovers to accent (orange) */
-.todayClubsList__item:hover .todayClubsList__status {
-  background: transparent;
-  color: var(--cream);
-  border-color: var(--cream);
-  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.3), 0 1.5px 0 rgba(0,0,0,0.06);
 }
 
 .todayClubsList__meta {
@@ -96,20 +87,18 @@ box-shadow: 0 2px 4px -1px rgb(0 0 0 / 16%), 0 4px 5px 0 rgb(0 0 0 / 11%), 0 1px
   text-transform: uppercase;
   opacity: 0;
   transform: translateX(calc(100% + 16px));
-  transition: opacity var(--dur-op) var(--ease-in), transform var(--dur-tr) var(--ease-in);
+  transition: opacity 0.2s ease, transform 0.3s ease;
 
-  
   &::before {
-      content: " ";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
 }
 .todayClubsList__linkIcon {
-
 }
 
 .todayClubsList__row {

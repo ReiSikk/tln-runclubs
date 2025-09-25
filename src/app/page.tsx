@@ -10,15 +10,13 @@ import Image from "next/image";
 export default function Home() {
 
   return (
-    <div className={styles.page}>
-      <nav className={styles.siteNav}>
-        <WeatherWidget />
-      </nav>
-      <header className={styles.header}>
+    <div className={`${styles.page}`}>
+      <header className={`${styles.header} container`}>
         <h1 className={`${styles.siteTitle} italic uppercase`}>Tln Run Clubs</h1>
+        <WeatherWidget />
       </header>
-      <main className={`${styles.main}`}>
-        <section className={`${styles.mainSection} container`}>
+      <main className={`${styles.main} container`}>
+        <section className={`${styles.mainSection} fp`}>
           <div className={`${styles.mainSection__main} col-m-12 col-t-6 col-d-4`}>
           <h2 className={`${styles.mainSection__title} h3`}>
             Clubs running in Tallinn today

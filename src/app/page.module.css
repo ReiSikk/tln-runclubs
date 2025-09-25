@@ -7,7 +7,6 @@
   --button-secondary-hover: #f2f2f2;
 
   min-height: 100svh;
-  padding-inline: clamp(24px, 6vw, 80px);
   padding-block: 32px;
   font-family: var(--font-geist-sans);
 }
@@ -15,9 +14,6 @@
 /*
    Site top navigation and weather widget
    ========================================================================== */
-
-.siteNav {
-}
 .weatherWidget {
   display: flex;
   align-items: center;
@@ -27,8 +23,11 @@
   font-size: 1.4rem;
   font-weight: 700;
   color: var(--cream);
-  margin-left: auto;
   width: fit-content;
+
+  @media only screen and (min-width: 768px) and (max-width: 1024px), only screen and (min-width: 1025px) {
+    margin-left: auto;
+  }
 }
 
 /*
@@ -36,6 +35,7 @@
    ========================================================================== */
 
 .header {
+  column-gap: 32px;
 }
 
 /*
@@ -46,6 +46,7 @@
   font-family: var(--font-work-sans);
   font-size: clamp(4rem, 6vw, 6.4rem);
   font-weight: 600;
+  line-height: 1.1;
 }
 .main {
 }
@@ -217,16 +218,20 @@
    ========================================================================== */
 .ctaSection {
   margin-block: 100px;
-  padding: 24px;
   background: var(--accent);
-  border-radius: 40px;
+  border-radius: clamp(32px, 4vw, 40px);
   align-items: stretch;
+  flex-wrap: wrap-reverse;
+  padding-block: clamp(16px, 3vw, 24px);
 
 }
 .ctaSection__main {
   display: flex;
   flex-direction: column;
-  padding-right: 40px;
+
+  @media only screen and (min-width: 768px) and (max-width: 1024px), only screen and (min-width: 1025px) {
+    padding-right: 40px;
+  }
 }
 .ctaSection__title {
   color: var(--dark);
@@ -242,27 +247,32 @@
 
 }
 .ctaSection__btn {
-  margin-top: auto;
+  margin-top: 0;
   max-width: fit-content;
-  margin-top: 16px;
+  margin-top: 48px;
+  margin-left: auto;
   @media only screen and (min-width: 768px) and (max-width: 1024px), only screen and (min-width: 1025px) {
-      margin-top: 0;
+    margin-top: auto;
+    margin-left: 0;
   }
 }
 .ctaSection__side {
   display: flex;
-  margin-top: 24px;
+  margin-bottom: 24px;
+  
   @media only screen and (min-width: 768px) and (max-width: 1024px), only screen and (min-width: 1025px) {
-      margin-top: 0;
+    margin-bottom: 0;
   }
 }
 .ctaSection__image {
   border-radius: 16px;
-  margin-left: auto;
-  max-width: 614px;
-  max-height: 416px;
   object-fit: cover;
   width: 100%;
+
+  @media only screen and (min-width: 768px) and (max-width: 1024px), only screen and (min-width: 1025px) {
+    max-height: 416px;
+    max-width: 614px;
+  }
 }
 
 
