@@ -17,8 +17,8 @@ function AllClubsListItem() {
         <span>
         Buns runs club
         </span>
-        {/* //TODO: Link to correct dynamic subpage */}
-        <Link href="#" type="button" className={`${styles.allClubsList__btn} txt-btn`} aria-label="Go to run club page to see more info">View</Link>
+        {/* //TODO: Link to correct dynamic subpage slug fetched from Sanity CMS */}
+        <Link href="/runclubs/buns-runs-club" type="button" className={`${styles.allClubsList__btn} txt-btn`} aria-label="Go to run club page to see more info">View</Link>
     </li>
   )
 }

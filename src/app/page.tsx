@@ -1,13 +1,20 @@
 import AllClubsListItem from "./components/AllClubsListItem";
-import ClubListItem from "./components/ClubListItem";
 import CtaSection from "./components/CtaSection";
 import SearchBar from "./components/SearchBar";
 import { TodayClubsList } from "./components/TodaysClubsList";
 import WeatherWidget from "./components/WeatherWidget";
 import styles from "./page.module.css";
-import Image from "next/image";
+import { type SanityDocument } from "next-sanity";
+import sanityClient from "../sanity/client";
 
-export default function Home() {
+const postsQuery = `*[_type == "runClub"] | order(orderRank)`
+
+const options = { next: { revalidate: 30 } };
+
+export default async function Home() {
+    const posts = await sanityClient.fetch<SanityDocument[]>(postsQuery, {}, options);
+    console.log("Run clubs from CMS:", posts);
+    console.log(postsQuery);
 
   return (
     <div className={`${styles.page}`}>

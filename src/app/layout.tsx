@@ -41,7 +41,6 @@ export default function RootLayout({
       </Head>
       <body className={`${geistSans.variable} ${geistMono.variable} ${workSans.variable}`}>
         {children}
-      </body>
       <footer className="siteFooter container">
         <div className="sitefooter__main fp">
           <h5 className="siteFooter__title h1 uppercase italic">Tln Run Clubs</h5>
@@ -54,6 +53,7 @@ export default function RootLayout({
           <p className="txt-label txt-small">Idea, design & code by Rei Sikk</p>
         </div>
       </footer>
+      </body>
     </html>
   );
 }
