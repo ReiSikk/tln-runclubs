@@ -1,16 +1,25 @@
 import styles from './TodayClubsList.module.css';
 import TodaysClubsListItem from './TodaysClubsListItem';
-import { TodayClub } from '../lib/types';
+import { RunClub } from '../lib/types';
+import { convertDaysToAbbs } from "../lib/utils/convertDays";
+
 
 interface TodayClubsListProps {
-  clubs: TodayClub[];
+  clubs: RunClub[];
 }
 
 export function TodayClubsList({ clubs }: TodayClubsListProps) {
+  const formattedClubs = clubs.map(club => ({
+    ...club,
+    days: convertDaysToAbbs(club.days)
+  }));
+
+  console.log("Formatted clubs:", formattedClubs);
+
   return (
     <ul className={styles.todayClubsList}>
-      {clubs.map((club) => (
-        <TodaysClubsListItem key={club.id} club={club} />
+      {formattedClubs.map((club) => (
+        <TodaysClubsListItem key={club._id} club={club} />
       ))}
     </ul>
   );

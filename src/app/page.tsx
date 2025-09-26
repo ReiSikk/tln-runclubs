@@ -1,20 +1,18 @@
-import AllClubsListItem from "./components/AllClubsListItem";
 import CtaSection from "./components/CtaSection";
 import SearchBar from "./components/SearchBar";
+import AllClubsList from "./components/AllClubsList";
 import { TodayClubsList } from "./components/TodaysClubsList";
 import WeatherWidget from "./components/WeatherWidget";
-import styles from "./page.module.css";
-import { type SanityDocument } from "next-sanity";
+import { RunClub } from "./lib/types";
 import sanityClient from "../sanity/client";
+import styles from "./page.module.css";
 
 const postsQuery = `*[_type == "runClub"] | order(orderRank)`
 
 const options = { next: { revalidate: 30 } };
 
 export default async function Home() {
-    const posts = await sanityClient.fetch<SanityDocument[]>(postsQuery, {}, options);
-    console.log("Run clubs from CMS:", posts);
-    console.log(postsQuery);
+    const allRunClubs = await sanityClient.fetch<RunClub[]>(postsQuery, {}, options);
 
   return (
     <div className={`${styles.page}`}>
@@ -29,37 +27,13 @@ export default async function Home() {
             Clubs running in Tallinn today
           </h2>
           <div className={styles.clubsList}>
-            <TodayClubsList clubs={[
-              {
-                id: '1',
-                name: 'Morning Joggers',
-                time: '6:30 AM - 7:30 AM',
-                location: 'Kadriorg Park',
-                participants: 15,
-                status: 'starting-soon',
-                days: ['Mon', 'Wed', 'Fri'],
-              },
-              {
-                id: '2',
-                name: 'City Runners',
-                time: '7:00 AM - 8:00 AM',
-                location: 'Freedom Square',
-                participants: 20,
-                status: 'in-progress',
-                days: ['Tue', 'Thu'],
-              },
-            ]} />
+            <TodayClubsList clubs={allRunClubs} />
           </div>
           </div>
           <aside className={`${styles.mainSection__side} col-m-12 col-t-6 col-d-8`}>
             <h3 className={`${styles.side__title} h3`}>All run clubs</h3>
             <SearchBar />
-            <ul className={`${styles.allClubsList} list-block`}>
-              <AllClubsListItem />
-              <AllClubsListItem />
-              <AllClubsListItem />
-              <AllClubsListItem />
-            </ul>
+            <AllClubsList clubs={allRunClubs} />
           </aside>
         </section>
         <CtaSection />

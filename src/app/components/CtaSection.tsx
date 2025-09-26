@@ -1,10 +1,10 @@
 import React from "react";
-import styles from "../page.module.css";
 import Image from "next/image";
+import styles from "../page.module.css";
 
 function CtaSection() {
   return (
-    <section className={`${styles.ctaSection} container`}>
+    <section className={`${styles.ctaSection}`}>
       <div className={`${styles.ctaSection__main} col-m-12 col-t-6 col-d-6`}>
         <h4 className={`${styles.ctaSection__title} h2 italic`}>Know of a run club we haven't listed?</h4>
         <p className={styles.ctaSection__text}>

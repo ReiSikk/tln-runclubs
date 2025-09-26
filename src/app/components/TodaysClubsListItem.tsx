@@ -1,12 +1,12 @@
 import React from 'react'
 import { ArrowRightSquare, ArrowUpRight, Calendar, Clock, MapPin, Users } from 'lucide-react';
 import styles from './TodayClubsList.module.css';
-import { TodayClub } from '../lib/types';
+import { RunClub } from '../lib/types';
 import Link from 'next/link';
 
-function TodaysClubsListItem({ club }: { club: TodayClub }) {
+function TodaysClubsListItem({ club }: { club: RunClub }) {
 
-     const getStatusClass = (status: TodayClub['status']) => {
+     const getStatusClass = (status: RunClub['status']) => {
     switch (status) {
       case 'starting-soon':
         return styles['todayClubsList__status--startingSoon'];
@@ -18,8 +18,9 @@ function TodaysClubsListItem({ club }: { club: TodayClub }) {
     }
   };
 
+
   return (
-    <li key={club.id} className={styles.todayClubsList__item}>
+    <li className={styles.todayClubsList__item}>
         <div className={`${styles.todayClubsList__header} fp`}>
             <h3 className={`${styles.todayClubsList__title} h4`}>{club.name}</h3>
             <span
@@ -44,7 +45,9 @@ function TodaysClubsListItem({ club }: { club: TodayClub }) {
             </div>
             <div className={styles.todayClubsList__row}>
                 <Calendar className={styles.todayClubsList__icon} />
-                {club.days.join(', ')}
+                {club.days.map((day: string, index: number) => (
+                  <span key={index}>{day}</span>  // ✅ Has key prop
+                ))}
             </div>
         </div>
         <Link className={styles.todayClubsList__link} href="#" aria-label={`View more details about ${club.name} run club`}>

@@ -1,5 +1,5 @@
-export interface TodayClub {
-  id: string;
+export interface RunClub {
+  _id: string;
   name: string;
   time: string;
   location: string;
@@ -8,4 +8,4 @@ export interface TodayClub {
   status: 'starting-soon' | 'in-progress' | 'upcoming';
 }
 
-export type TodayClubs = TodayClub[];
+export type RunClubs = RunClub[];
