@@ -1,0 +1,114 @@
+.todayClubsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.todayClubsList__item {
+  position: relative;
+  background: var(--white);
+  color: var(--dark);
+  border-radius: 8px;
+  padding: 16px;
+  cursor: pointer;
+  transition: 0.2s ease;
+  overflow: hidden;
+
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      .todayClubsList__link {
+        opacity: 1;
+        transform: translateX(0);
+        transition: opacity 0.2s ease-in-out, transform 0.3s ease-in-out;
+      }
+    }
+  }
+}
+
+.todayClubsList__header {
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+
+  @media only screen and (min-width: 768px) and (max-width: 1024px), only screen and (min-width: 1025px) {
+      margin-bottom: 12px;
+  }
+}
+
+.todayClubsList__title {
+  padding-right: 16px;
+  margin-bottom: 4px;
+}
+
+.todayClubsList__status {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1;
+  border: 1px solid transparent;
+  box-shadow: 0 2px 4px -1px rgb(0 0 0 / 16%), 0 4px 5px 0 rgb(0 0 0 / 11%), 0 1px 10px 0 rgb(0 0 0 / 10%);
+}
+
+.todayClubsList__status--startingSoon {
+  background-color: #fff1b2;
+  color: #4a3b00;
+  border-color: #e5c766;
+}
+
+.todayClubsList__status--inProgress {
+  background-color: #d6f4e3;
+  color: #065f46;
+  border-color: #34d399;
+}
+
+.todayClubsList__status--upcoming {
+  background-color: #e8eef2;
+  color: #334155;
+  border-color: #94a3b8;
+}
+
+.todayClubsList__meta {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.todayClubsList__link {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateX(calc(100% + 16px));
+  transition: opacity 0.2s ease, transform 0.3s ease;
+
+  &::before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+.todayClubsList__linkIcon {
+}
+
+.todayClubsList__row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.todayClubsList__icon {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+}
