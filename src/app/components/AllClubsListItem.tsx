@@ -2,8 +2,19 @@ import React from 'react'
 import styles from '../page.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
+import { RunClub } from '../lib/types'
 
-function AllClubsListItem() {
+function AllClubsListItem({ club }: { club: RunClub }) {
+  const slug = club?.slug?.current;
+
+  if (!club) {
+    return (
+      <li className={styles.allClubsList__item}>
+        <p>No club data available</p>
+      </li>
+    )
+  }
+
   return (
      <li className={styles.allClubsList__item}>
         <Image
@@ -15,10 +26,9 @@ function AllClubsListItem() {
           className={styles.allClubsList__image}
         />
         <span>
-        Buns runs club
+          {club.name}
         </span>
-        {/* //TODO: Link to correct dynamic subpage slug fetched from Sanity CMS */}
-        <Link href="/runclubs/buns-runs-club" type="button" className={`${styles.allClubsList__btn} txt-btn`} aria-label="Go to run club page to see more info">View</Link>
+        <Link href={`runclubs/${slug}`} type="button" className={`${styles.allClubsList__btn} txt-btn`} aria-label="Go to run club page to see more info">View</Link>
     </li>
   )
 }

@@ -5,6 +5,7 @@ export interface RunClub {
   location: string;
   participants: number;
   days: string[];
+  slug?: { current: string };
   status: 'starting-soon' | 'in-progress' | 'upcoming';
 }
 

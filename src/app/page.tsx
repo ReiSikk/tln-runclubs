@@ -1,20 +1,44 @@
+// Components
 import CtaSection from "./components/CtaSection";
 import SearchBar from "./components/SearchBar";
 import AllClubsList from "./components/AllClubsList";
 import { TodayClubsList } from "./components/TodaysClubsList";
 import WeatherWidget from "./components/WeatherWidget";
-import { RunClub } from "./lib/types";
+// Sanity
 import sanityClient from "../sanity/client";
+// Types
+import { RunClub } from "./lib/types";
+// Styles
 import styles from "./page.module.css";
+// TanStack Query
+import {
+  dehydrate,
+  HydrationBoundary,
+  QueryClient,
+} from '@tanstack/react-query'
 
 const postsQuery = `*[_type == "runClub"] | order(orderRank)`
-
 const options = { next: { revalidate: 30 } };
 
+// Define the getRunClubs function
+async function getRunClubs(): Promise<RunClub[]> {
+  return await sanityClient.fetch<RunClub[]>(postsQuery, {}, options);
+}
+
 export default async function Home() {
-    const allRunClubs = await sanityClient.fetch<RunClub[]>(postsQuery, {}, options);
+  const queryClient = new QueryClient()
+
+  // Prefetch data on server for instant loading
+  await queryClient.prefetchQuery({
+    queryKey: ['runClubs'],
+    queryFn: getRunClubs,
+  })
+
+  // Pass prefetched data to components
+  const allRunClubs = queryClient.getQueryData<RunClub[]>(['runClubs']) || [];
 
   return (
+    <HydrationBoundary state={dehydrate(queryClient)}>
     <div className={`${styles.page}`}>
       <header className={`${styles.header} container`}>
         <h1 className={`${styles.siteTitle} italic uppercase`}>Tln Run Clubs</h1>
@@ -41,5 +65,6 @@ export default async function Home() {
       <footer className={styles.footer}>
       </footer>
     </div>
+    </HydrationBoundary>
   );
 }

@@ -9,11 +9,10 @@ interface AllClubsListProps {
 
 function AllClubsList({ clubs }: AllClubsListProps) {
   return (
-     <ul className={`${styles.allClubsList} list-block`}>
-        <AllClubsListItem />
-        <AllClubsListItem />
-        <AllClubsListItem />
-        <AllClubsListItem />
+    <ul className={`${styles.allClubsList} list-block`}>
+      {clubs.map(club => (
+        <AllClubsListItem key={club._id} club={club} />
+      ))}
     </ul>
   )
 }
