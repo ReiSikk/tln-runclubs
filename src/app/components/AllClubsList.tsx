@@ -9,11 +9,23 @@ function AllClubsList({ searchTerm }: { searchTerm: string }) {
   const { data: clubs = [], isLoading, isError } = getRunClubs();
 
   if (isLoading) {
-    return <div className={`${styles.allClubsList} loading`}>Loading clubs...</div>
+    return (
+      <ul className={`${styles.allClubsList} list-block error`}>
+      <li className={`${styles.noResults} fp`}>
+          Loading clubs...
+        </li>
+      </ul> 
+    )
   }
   
   if (isError) {
-    return <div className={`${styles.allClubsList} error`}>Error loading clubs</div>
+    return (
+      <ul className={`${styles.allClubsList} list-block error`}>
+        <li className={`${styles.noResults} fp`}>
+          Error loading clubs
+        </li>
+      </ul>
+    );
   }
 
   // Filter clubs based on search term
