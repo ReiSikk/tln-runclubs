@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import styles from "../page.module.css";
@@ -16,7 +17,6 @@ export default function WeatherWidget() {
   const [data, setData] = useState<WeatherData | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
-  // console.log("data", data);
 
   useEffect(() => {
     async function fetchData() {

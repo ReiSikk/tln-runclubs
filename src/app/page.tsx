@@ -16,6 +16,7 @@ import {
   HydrationBoundary,
   QueryClient,
 } from '@tanstack/react-query'
+import HomeMainAside from "./components/MainSectionAside";
 
 const postsQuery = `*[_type == "runClub"] | order(orderRank)`
 const options = { next: { revalidate: 30 } };
@@ -34,8 +35,6 @@ export default async function Home() {
     queryFn: getRunClubs,
   })
 
-  // Pass prefetched data to components
-  const allRunClubs = queryClient.getQueryData<RunClub[]>(['runClubs']) || [];
 
   return (
     <HydrationBoundary state={dehydrate(queryClient)}>
@@ -51,14 +50,10 @@ export default async function Home() {
             Clubs running in Tallinn today
           </h2>
           <div className={styles.clubsList}>
-            <TodayClubsList clubs={allRunClubs} />
+            <TodayClubsList />
           </div>
           </div>
-          <aside className={`${styles.mainSection__side} col-m-12 col-t-6 col-d-8`}>
-            <h3 className={`${styles.side__title} h3`}>All run clubs</h3>
-            <SearchBar />
-            <AllClubsList clubs={allRunClubs} />
-          </aside>
+          <HomeMainAside />
         </section>
         <CtaSection />
       </main>

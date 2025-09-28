@@ -1,6 +1,5 @@
 // Convert full names for days into abbreviations
 export function convertDaysToAbbs(days: string[]): string[] {
-    console.log("Converting days:", days);
 
     const dayMap: { [key: string]: string } = {
         'monday': 'Mon',
