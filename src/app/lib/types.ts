@@ -3,7 +3,10 @@ export interface RunClub {
   name: string;
   time: string;
   location: string;
+  address: string;
+  description: string;
   participants: number;
+  distanceRange: string;
   days: string[];
   slug?: { current: string };
   status: 'starting-soon' | 'in-progress' | 'upcoming';

@@ -22,7 +22,7 @@ const postsQuery = `*[_type == "runClub"] | order(orderRank)`
 const options = { next: { revalidate: 30 } };
 
 // Define the getRunClubs function
-async function getRunClubs(): Promise<RunClub[]> {
+export async function getRunClubs(): Promise<RunClub[]> {
   return await sanityClient.fetch<RunClub[]>(postsQuery, {}, options);
 }
 

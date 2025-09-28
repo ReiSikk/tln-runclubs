@@ -2,9 +2,9 @@ import React from "react";
 import Image from "next/image";
 import styles from "../page.module.css";
 
-function CtaSection() {
+function CtaSection({ variant }: { variant?: string }) {
   return (
-    <section className={`${styles.ctaSection}`}>
+    <section className={`${styles.ctaSection} ${variant === 'white-bg' ? styles.whiteBg : ''}`}>
       <div className={`${styles.ctaSection__main} col-m-12 col-t-6 col-d-6`}>
         <h4 className={`${styles.ctaSection__title} h2 italic`}>Know of a run club we haven't listed?</h4>
         <p className={styles.ctaSection__text}>
