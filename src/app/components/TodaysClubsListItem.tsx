@@ -5,8 +5,10 @@ import { RunClub } from '../lib/types';
 import Link from 'next/link';
 
 function TodaysClubsListItem({ club }: { club: RunClub }) {
+  const slug = club?.slug?.current;
 
-     const getStatusClass = (status: RunClub['status']) => {
+
+  const getStatusClass = (status: RunClub['status']) => {
     switch (status) {
       case 'starting-soon':
         return styles['todayClubsList__status--startingSoon'];
@@ -46,11 +48,11 @@ function TodaysClubsListItem({ club }: { club: RunClub }) {
             <div className={styles.todayClubsList__row}>
                 <Calendar className={styles.todayClubsList__icon} />
                 {club.days.map((day: string, index: number) => (
-                  <span key={index}>{day}</span>  // ✅ Has key prop
+                  <span key={index}>{day}</span>
                 ))}
             </div>
         </div>
-        <Link className={styles.todayClubsList__link} href="#" aria-label={`View more details about ${club.name} run club`}>
+        <Link className={styles.todayClubsList__link} href={`/runclubs/${slug}`} aria-label={`View more details about ${club.name} run club`}>
             <span>View</span>
             <ArrowUpRight className={styles.todayClubsList__linkIcon} size={24}/>
         </Link>

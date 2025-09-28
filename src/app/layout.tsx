@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Work_Sans } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
+import Providers from "./providers";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,21 +40,21 @@ export default function RootLayout({
         <meta name="author" content="Rei Sikk" />
         <meta property="og:title" content="Tallinn Run Clubs" />
       </Head>
-      <body className={`${geistSans.variable} ${geistMono.variable} ${workSans.variable}`}>
-        {children}
-      <footer className="siteFooter container">
-        <div className="sitefooter__main fp">
-          <h5 className="siteFooter__title h1 uppercase italic">Tln Run Clubs</h5>
-          <p className="siteFooter__text">
-            Buy me a coffee.
-            This helps cover hosting & domain costs. Thank you 🙏
-          </p>
-        </div>
-        <div className="siteFooter__side">
-          <p className="txt-label txt-small">Idea, design & code by Rei Sikk</p>
-        </div>
-      </footer>
-      </body>
+        <body className={`${geistSans.variable} ${geistMono.variable} ${workSans.variable}`}>
+          <Providers>{children}</Providers>
+        <footer className="siteFooter container">
+          <div className="sitefooter__main fp">
+            <h5 className="siteFooter__title h1 uppercase italic">Tln Run Clubs</h5>
+            <p className="siteFooter__text">
+              Buy me a coffee.
+              This helps cover hosting & domain costs. Thank you 🙏
+            </p>
+          </div>
+          <div className="siteFooter__side">
+            <p className="txt-label txt-small">Idea, design & code by Rei Sikk</p>
+          </div>
+        </footer>
+        </body>
     </html>
   );
 }
