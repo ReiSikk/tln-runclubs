@@ -11,7 +11,8 @@ async function getCurrentRunClub(slug: string): Promise<RunClub | null> {
 }
 
 async function SingleRunClubPage({ params }: { params: { slug: string } }) {
-  const club = await getCurrentRunClub(params.slug);
+  const { slug } = await params;
+  const club = await getCurrentRunClub(slug);
 
   if (!club) {
     return <div>Club not found</div>;
