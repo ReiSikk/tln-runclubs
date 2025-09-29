@@ -82,9 +82,11 @@ p {
   line-height: 1.5;
 }
 .txt-label {
-  font-size: 1.4rem;
-  font-weight: 400;
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
+  font-weight: 500;
   text-transform: uppercase;
+  letter-spacing: 0.8px;
+
 }
 .txt-small {
   font-size: 1.2rem;
@@ -168,6 +170,31 @@ ol {
   transition: all 0.2s ease;
   border: 1px solid transparent;
 
+  &.socials {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    text-align: left;
+    padding-inline: 4px;
+    padding-block: 4px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 8px 16px 0px;
+
+    &:hover {
+      transform: translateY(-4px);
+    }
+  }
+  &.socials a {
+    flex: 1;
+    text-align: center;
+  }
+
+  &.white {
+    background: var(--cream);
+    color: var(--dark);
+    border: 1px solid var(--cream);
+  }
+
   &:hover {
     background: var(--cream);
     color: var(--dark);
@@ -195,7 +222,30 @@ ol {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  transition: opacity 0.2s ease, transform 0.3s ease, filter 0.2s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease, filter 0.2s ease;
+}
+
+.icon-carousel-anim {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  transition: opacity 0.2s ease, transform 0.3s ease;
+  padding-inline: 8px;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1.6rem;
+  font-weight: 500;
+  font-family: var(--font-work-sans);
+  cursor: pointer;
+  transition: background-color 0.2s ease-out, transform 0.2s ease;
+  border-radius: 200px;
+  padding-inline: 8px 16px;
+  padding-block: 8px;
 }
 
 /* Only non-touch devices */
@@ -204,8 +254,21 @@ ol {
   filter: brightness(1.2);
 }
 
-.btn-txt-anim:active {
+.btn-txt-anim:active, .back-link:active {
   transform: scale(0.9);
+}
+
+.back-link:hover {
+  background-color: var(--accent);
+}
+
+.back-link:hover .icon-main {
+  transform: translateX(-200%);
+  opacity: 0;
+}
+.back-link:hover .icon-hovered {
+  transform: translateX(0);
+  opacity: 1;
 }
 
 .btn-txt-anim:hover .txt-main {
@@ -220,13 +283,22 @@ ol {
 }
 
 .btn-txt-anim .txt-main,
-.btn-txt-anim .txt-hovered {
+.btn-txt-anim .txt-hovered, .icon-carousel-anim .icon-main,
+.icon-carousel-anim .icon-hovered {
   display: block;
   transition: transform 0.3s ease, opacity 0.1s ease;
 }
-.btn-txt-anim .txt-main {
+.btn-txt-anim .txt-main, .icon-carousel-anim .icon-main {
   display: block;
   opacity: 1;
+}
+.icon-carousel-anim .icon-hovered {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  transform: translateX(200%);
+  opacity: 0;
 }
 
 .btn-txt-anim .txt-hovered {
@@ -391,9 +463,11 @@ ol {
    Site Footer
    ========================================================================== */
 
+.page-single-runclub ~ footer {
+  background: var(--accent);
+}
 .siteFooter {
-  margin-bottom: 100px;
-
+  padding-bottom: 100px;
 }
 .sitefooter__main {
 
@@ -414,12 +488,15 @@ ol {
   margin-top: 48px;
 
   p {
-    opacity: 0.7;
+    opacity: 0.8;
+    width: fit-content;
+    margin-left: auto;
+    font-size: 1.6rem;
   }
 
   @media only screen and (min-width: 768px) and (max-width: 1024px), only screen and (min-width: 1025px) {
         width: 50%;
-        margin-top: 0;
+        margin-top: auto;
     }
 
 }

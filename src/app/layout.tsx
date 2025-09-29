@@ -51,7 +51,7 @@ export default function RootLayout({
             </p>
           </div>
           <div className="siteFooter__side">
-            <p className="txt-label txt-small">Idea, design & code by Rei Sikk</p>
+            <p className="">Idea, design & code by Rei Sikk</p>
           </div>
         </footer>
         </body>

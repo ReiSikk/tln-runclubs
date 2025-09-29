@@ -10,6 +10,10 @@ export interface RunClub {
   days: string[];
   slug?: { current: string };
   status: 'starting-soon' | 'in-progress' | 'upcoming';
+  facebook?: string;
+  instagram?: string;
+  strava?: string;
+  website?: string;
 }
 
 export type RunClubs = RunClub[];
