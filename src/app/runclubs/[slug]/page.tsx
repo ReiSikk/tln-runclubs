@@ -31,7 +31,7 @@ async function SingleRunClubPage({ params }: { params: { slug: string } }) {
     <div className={`${styles.page} page-single-runclub`}>
       <nav className={`${styles.pageNav} fp container`}>
         <Link href="/" className="back-link" aria-label="Back to home page">
-          <div className="icon-carousel-anim">
+          <div className="icon-carousel-anim left">
             <LucideMoveLeft width={24} height={24} strokeWidth={1.5} className="icon-main"/>
             <LucideMoveLeft width={24} height={24} strokeWidth={1.5} className="icon-hovered"/>
           </div>
