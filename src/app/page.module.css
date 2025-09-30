@@ -232,6 +232,9 @@
   padding: clamp(16px, 3vw, 24px);
   margin-block: 100px;
   border-radius: clamp(32px, 4vw, 40px);
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
 
   &.whiteBg {
     background: var(--cream);
@@ -271,6 +274,7 @@
 }
 .ctaSection__side {
   display: flex;
+  justify-content: flex-end;
   margin-bottom: 24px;
   
   @media only screen and (min-width: 768px) and (max-width: 1024px), only screen and (min-width: 1025px) {

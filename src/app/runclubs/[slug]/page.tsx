@@ -41,6 +41,13 @@ async function SingleRunClubPage({ params }: { params: { slug: string } }) {
         <WeatherWidget />
       </nav>
       <header className={`${styles.pageHeader} container fp`}>
+        <Link href="/" className="back-link back-link--mob" aria-label="Back to home page">
+          <div className="icon-carousel-anim">
+            <LucideMoveLeft width={24} height={24} strokeWidth={1.5} className="icon-main"/>
+            <LucideMoveLeft width={24} height={24} strokeWidth={1.5} className="icon-hovered"/>
+          </div>
+          Back
+        </Link>
         <h1 className={styles.pageHeader__title}>{club.name}</h1>
         <p className={styles.pageHeader__description}>{club.description}</p>
         <ul className={`${styles.pageHeader__cards}`}>
@@ -55,7 +62,7 @@ async function SingleRunClubPage({ params }: { params: { slug: string } }) {
           </li>
           <li className={styles.pageHeader__card}>
             <span className={`${styles.label} uppercase txt-label`}>Distance</span>
-            <h2 className={`${styles.cardTitle}`}>{club.distanceRange}</h2>
+            <h2 className={`${styles.cardTitle}`}>{club.distanceRange} kilometers</h2>
           </li>
         </ul>
         <h3 className={`${styles.pageHeader__subtitle} h3`}>Visit our socials to stay in the loop for events!</h3>

@@ -5,17 +5,24 @@
     background: var(--dark);
     color: var(--cream);
     align-items: center;
+    justify-content: space-between;
+    gap: 4px 24px;
 }
 .pageNav__title {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
     font-size: clamp(1.8rem, 2vw, 2.4rem);
     font-weight: 700;
+    line-height: 1.1;
+
+    @media only screen and (min-width: 768px) and (max-width: 1024px), only screen and (min-width: 1025px) {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
 .pageHeader {
     flex-direction: column;
-    padding-block: 64px;
+    padding-block: clamp(16px, 6vw, 64px) clamp(48px, 7vw, 64px);
     background: var(--white);
     color: var(--dark);
     border-radius: clamp(12px, 2vw, 16px);
@@ -94,6 +101,10 @@
 .pageMain {
     position: relative;
     background: var(--accent);
+
+    section {
+        margin-top: clamp(32px, 6vw, 64px);
+    }
 
     &:before {
         position: absolute;

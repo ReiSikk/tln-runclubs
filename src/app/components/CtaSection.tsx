@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import styles from "../page.module.css";
+import ctaImage from "../assets/runclub__img.webp"
 
 function CtaSection({ variant }: { variant?: string }) {
   return (
@@ -15,10 +16,8 @@ function CtaSection({ variant }: { variant?: string }) {
         <a href="mailto:someemail@some.com" role="button" aria-label="Send email enquiry" className={`${styles.ctaSection__btn} btn_main`}>Let us know!</a>
       </div>
       <div className={`${styles.ctaSection__side} col-m-12 col-t-6 col-d-6`}>
-        {/* //TODO: Remove unpotimized prop */}
         <Image
-          unoptimized
-          src="https://placehold.co/614x416"
+          src={ctaImage}
           alt="Join a running club"
           width={614}
           height={416}

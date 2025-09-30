@@ -235,7 +235,7 @@ ol {
 }
 
 .back-link {
-  display: inline-flex;
+  display: none;
   align-items: center;
   gap: 8px;
   font-size: 1.6rem;
@@ -246,6 +246,19 @@ ol {
   border-radius: 200px;
   padding-inline: 8px 16px;
   padding-block: 8px;
+
+  @media only screen and (min-width: 768px) and (max-width: 1024px), only screen and (min-width: 1025px) {
+      display: inline-flex;
+  }
+
+  &.back-link--mob {
+    display: inline-flex;
+    margin-bottom: 24px;
+
+    @media only screen and (min-width: 768px) and (max-width: 1024px), only screen and (min-width: 1025px) {
+      display: none;
+    }
+  }
 }
 
 /* Only non-touch devices */
@@ -255,10 +268,10 @@ ol {
 }
 
 .btn-txt-anim:active, .back-link:active {
-  transform: scale(0.9);
+  transform: scale(0.95);
 }
 
-.back-link:hover {
+.back-link:hover, .back-link:active {
   background-color: var(--accent);
 }
 
