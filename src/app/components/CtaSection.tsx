@@ -24,7 +24,7 @@ function CtaSection({ variant }: { variant?: string }) {
       <div className={`${styles.ctaSection__side} col-m-12 col-t-6 col-d-6`}>
         <Image
           src={ctaImage}
-          alt="Join a running club"
+          alt="Image of people running down a brick road. Photo by Jeremy Bishop on Unsplash"
           width={614}
           height={416}
           className={styles.ctaSection__image}

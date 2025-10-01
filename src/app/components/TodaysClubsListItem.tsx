@@ -1,5 +1,5 @@
 import React from 'react'
-import { ArrowRightSquare, ArrowUpRight, Calendar, Clock, MapPin, Users } from 'lucide-react';
+import { ArrowUpRight, Calendar, Clock, MapPin } from 'lucide-react';
 import styles from './TodayClubsList.module.css';
 import { RunClub } from '../lib/types';
 import Link from 'next/link';
@@ -7,25 +7,24 @@ import Link from 'next/link';
 function TodaysClubsListItem({ club }: { club: RunClub }) {
   const slug = club?.slug?.current;
 
-
-  const getStatusClass = (status: RunClub['status']) => {
-    switch (status) {
-      case 'starting-soon':
-        return styles['todayClubsList__status--startingSoon'];
-      case 'in-progress':
-        return styles['todayClubsList__status--inProgress'];
-      case 'upcoming':
-      default:
-        return styles['todayClubsList__status--upcoming'];
-    }
-  };
+  // const getStatusClass = (status: RunClub['status']) => {
+  //   switch (status) {
+  //     case 'starting-soon':
+  //       return styles['todayClubsList__status--startingSoon'];
+  //     case 'in-progress':
+  //       return styles['todayClubsList__status--inProgress'];
+  //     case 'upcoming':
+  //     default:
+  //       return styles['todayClubsList__status--upcoming'];
+  //   }
+  // };
 
 
   return (
     <li className={styles.todayClubsList__item}>
         <div className={`${styles.todayClubsList__header} fp`}>
             <h3 className={`${styles.todayClubsList__title} h4`}>{club.name}</h3>
-            <span
+            {/* <span
                 className={`${styles.todayClubsList__status} ${getStatusClass(club.status)}`}
             >
                 {club.status === 'starting-soon'
@@ -33,7 +32,7 @@ function TodaysClubsListItem({ club }: { club: RunClub }) {
                 : club.status === 'in-progress'
                 ? 'In Progress'
                 : 'Upcoming'}
-            </span>
+            </span> */}
         </div>
 
         <div className={`${styles.todayClubsList__meta} txt-small`}>

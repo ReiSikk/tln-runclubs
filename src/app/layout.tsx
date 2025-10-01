@@ -50,8 +50,9 @@ export default function RootLayout({
               This helps cover hosting & domain costs. Thank you 🙏
             </p>
           </div>
-          <div className="siteFooter__side">
-            <p className="">Idea, design & code by Rei Sikk</p>
+          <div className="siteFooter__side fp">
+            <a href="https://www.reihopsti.ee" target="_blank" rel="noopener noreferrer">Idea, design & code by <span>Rei Sikk</span></a>
+            <span>All rights reserved © {new Date().getFullYear()}</span>
           </div>
         </footer>
         </body>
