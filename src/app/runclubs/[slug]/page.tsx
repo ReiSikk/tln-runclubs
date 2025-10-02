@@ -1,13 +1,15 @@
-import sanityClient  from '@/sanity/client'
-import { RunClub } from '@/app/lib/types';
 import styles from './page.module.css'
-import CtaSection from '@/app/components/CtaSection';
 import Link from 'next/link';
-import { LucideLink, LucideMoveLeft } from 'lucide-react';
 import Image from 'next/image';
-// Sanity
-import { urlFor } from "@/sanity/client";
+// Components
+import CtaSection from '@/app/components/CtaSection';
 import NavBar from '@/app/components/NavBar';
+import { LucideLink, LucideMoveLeft } from 'lucide-react';
+// Types
+import { RunClub } from '@/app/lib/types';
+// Sanity
+import sanityClient  from '@/sanity/client'
+import { urlFor } from "@/sanity/client";
 
 
 

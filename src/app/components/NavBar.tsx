@@ -7,30 +7,23 @@ import { LucideMoveLeft } from 'lucide-react';
 import WeatherWidget from '@/app/components/WeatherWidget';
 
 function NavBar() {
-    // Flag, which stores whether the screen is scrolled
     const [isScrolled, setScrolled] = useState(false);
-    console.log(isScrolled);
 
-    // Handler when page is scrolled
     const handleScroll = () => {
-    if(window.pageYOffset > 250) {
+    if(window.pageYOffset > 200) {
         setScrolled(true)
     } else {
         setScrolled(false)
     }
     }
 
-
     useEffect(() => {
-        // Adding the scroll listener
         window.addEventListener('scroll', handleScroll, { passive: true });
 
         return () => {
-            // Removing listener
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
-
 
   return (
       <nav className={`siteNav fp container ${isScrolled ? 'siteNav--scrolled' : ''}`}>
