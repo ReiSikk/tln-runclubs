@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import styles from "../page.module.css";
+import ctaImage from "../assets/runclub__img.webp"
+import { LucideSendHorizonal } from "lucide-react";
 
 function CtaSection({ variant }: { variant?: string }) {
   return (
@@ -12,14 +14,17 @@ function CtaSection({ variant }: { variant?: string }) {
           know about.
         </p>
         {/* //TODO: Add correct email here!! */}
-        <a href="mailto:someemail@some.com" role="button" aria-label="Send email enquiry" className={`${styles.ctaSection__btn} btn_main`}>Let us know!</a>
+        <a href="mailto:someemail@some.com" role="button" aria-label="Send email enquiry" className={`${styles.ctaSection__btn} btn_main `}>Let us know!
+          <div className="icon-carousel-anim">
+            <LucideSendHorizonal width={16} height={16} strokeWidth={1.5}  className="icon-main"/>
+            <LucideSendHorizonal width={16} height={16} strokeWidth={1.5}  className="icon-hovered"/>
+          </div>
+        </a>
       </div>
       <div className={`${styles.ctaSection__side} col-m-12 col-t-6 col-d-6`}>
-        {/* //TODO: Remove unpotimized prop */}
         <Image
-          unoptimized
-          src="https://placehold.co/614x416"
-          alt="Join a running club"
+          src={ctaImage}
+          alt="Image of people running down a brick road. Photo by Jeremy Bishop on Unsplash"
           width={614}
           height={416}
           className={styles.ctaSection__image}

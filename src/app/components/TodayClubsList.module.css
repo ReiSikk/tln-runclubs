@@ -6,7 +6,7 @@
 
 .todayClubsList__item {
   position: relative;
-  background: var(--white);
+  background: var(--cream);
   color: var(--dark);
   border-radius: 8px;
   padding: 16px;
@@ -16,6 +16,8 @@
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
+      background: var(--white);
+
       .todayClubsList__link {
         opacity: 1;
         transform: translateX(0);
