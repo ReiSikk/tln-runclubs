@@ -3,6 +3,7 @@ import { Geist, Geist_Mono, Work_Sans } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
 import Providers from "./providers";
+import SiteFooter from "./components/SiteFooter";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -42,19 +43,7 @@ export default function RootLayout({
       </Head>
         <body className={`${geistSans.variable} ${geistMono.variable} ${workSans.variable}`}>
           <Providers>{children}</Providers>
-        <footer className="siteFooter container">
-          <div className="sitefooter__main fp">
-            <h5 className="siteFooter__title h1 uppercase italic">Tln Run Clubs</h5>
-            <p className="siteFooter__text">
-              Buy me a coffee.
-              This helps cover hosting & domain costs. Thank you 🙏
-            </p>
-          </div>
-          <div className="siteFooter__side fp">
-            <a href="https://www.reihopsti.ee" target="_blank" rel="noopener noreferrer">Idea, design & code by <span>Rei Sikk</span></a>
-            <span>All rights reserved © {new Date().getFullYear()}</span>
-          </div>
-        </footer>
+          <SiteFooter />
         </body>
     </html>
   );
