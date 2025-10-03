@@ -13,13 +13,14 @@ function CtaSection({ variant }: { variant?: string }) {
           Help us build the most comprehensive directory of run clubs in Tallinn. Submit your club or suggest one you
           know about.
         </p>
-        {/* //TODO: Add correct email here!! */}
-        <a href="mailto:someemail@some.com" role="button" aria-label="Send email enquiry" className={`${styles.ctaSection__btn} btn_main `}>Let us know!
-          <div className="icon-carousel-anim">
-            <LucideSendHorizonal width={16} height={16} strokeWidth={1.5}  className="icon-main"/>
-            <LucideSendHorizonal width={16} height={16} strokeWidth={1.5}  className="icon-hovered"/>
-          </div>
-        </a>
+        {/* //TODO: Add correct form link here!! */}
+          <a href="https://tally.so/r/w87zDO" className={`${styles.ctaSection__btn} btn_main `} target="_blank" rel="noopener noreferrer">
+            Let us know!
+            <div className="icon-carousel-anim">
+              <LucideSendHorizonal width={16} height={16} strokeWidth={1.5}  className="icon-main"/>
+              <LucideSendHorizonal width={16} height={16} strokeWidth={1.5}  className="icon-hovered"/>
+            </div>
+          </a>
       </div>
       <div className={`${styles.ctaSection__side} col-m-12 col-t-6 col-d-6`}>
         <Image

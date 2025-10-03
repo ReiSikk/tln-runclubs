@@ -40,20 +40,24 @@ function TodaysClubsListItem({ club }: { club: RunClub }) {
                 <MapPin className={styles.todayClubsList__icon} />
                 {club.location}
             </div>
-            <div className={styles.todayClubsList__row}>
-                <Clock className={styles.todayClubsList__icon} />
-                {club.time}
-            </div>
+            {club.time &&
+                <div className={styles.todayClubsList__row}>
+                    <Clock className={styles.todayClubsList__icon} />
+                    {club.time}
+                </div>
+            }
             <div className={styles.todayClubsList__row}>
                 <Calendar className={styles.todayClubsList__icon} />
                 {club.days.map((day: string, index: number) => (
-                  <span key={index}>{day}</span>
+                  <span key={index} className=''>{day}</span>
                 ))}
             </div>
         </div>
-        <Link className={styles.todayClubsList__link} href={`/runclubs/${slug}`} aria-label={`View more details about ${club.name} run club`}>
-            <span>View</span>
-            <ArrowUpRight className={styles.todayClubsList__linkIcon} size={24}/>
+          <Link className={styles.todayClubsList__link} href={`/runclubs/${slug}`} aria-label={`View more details about ${club.name} run club`}>
+            <div className={styles.todayClubsList__linkContent}>
+                <span>View</span>
+                <ArrowUpRight className={styles.todayClubsList__linkIcon} size={24}/>
+            </div>
         </Link>
     </li>
   )
