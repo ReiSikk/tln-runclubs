@@ -5,6 +5,7 @@ export interface RunClub {
   name: string;
   logo?: SanityImageSource | '';
   time: string;
+  city: string;
   location: string;
   address: string;
   description: string;

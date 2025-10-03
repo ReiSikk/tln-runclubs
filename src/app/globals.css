@@ -574,11 +574,12 @@ ol {
 
 .page-single-runclub ~ footer {
   background: var(--accent);
+  color: var(--dark);
 }
 .siteFooter {
   padding-bottom: 64px;
   flex-direction: column;
-  color: var(--dark);
+  color: var(--cream);
 }
 .sitefooter__main {
   margin-bottom: 40px;

@@ -1,7 +1,5 @@
 // Components
 import CtaSection from "./components/CtaSection";
-import SearchBar from "./components/SearchBar";
-import AllClubsList from "./components/AllClubsList";
 import { TodayClubsList } from "./components/TodaysClubsList";
 import WeatherWidget from "./components/WeatherWidget";
 // Sanity
@@ -21,7 +19,7 @@ import HomeMainAside from "./components/MainSectionAside";
 const postsQuery = `*[_type == "runClub"] | order(orderRank)`
 const options = { next: { revalidate: 30 } };
 
-// Define the getRunClubs function
+// Fetch all run clubs from Sanity
 export async function getRunClubs(): Promise<RunClub[]> {
   return await sanityClient.fetch<RunClub[]>(postsQuery, {}, options);
 }
