@@ -25,8 +25,8 @@ export default function WeatherWidget() {
         if (!res.ok) throw new Error("Request failed");
         const json = await res.json();
         setData(json);
-      } catch (e) {
-        setError("Failed to load");
+      } catch (error) {
+        setError(error instanceof Error ? error.message : String(error));
       } finally {
         setLoading(false);
       }

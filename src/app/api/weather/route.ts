@@ -1,4 +1,3 @@
-import { error } from "console";
 import { NextResponse } from "next/server";
 
 const currentCity = "Tallinn";
@@ -27,7 +26,7 @@ export async function GET() {
 
     const data = await res.json();
     return NextResponse.json({ city: currentCity,current: data.current });
-    } catch (err) {
-        return NextResponse.json({error: "Server error"}, { status: 500})
+    } catch (error) {
+        return NextResponse.json({error: error instanceof Error ? error.message : String(error)}, { status: 500})
     }
 }

@@ -19,8 +19,8 @@ function HomeMainAside() {
   const { data: clubs = [], isLoading, isError } = getRunClubs();
 
   // Handle search input
-  let inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let lowerCase = e.target.value.toLowerCase();
+  const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const lowerCase = e.target.value.toLowerCase();
     setInputText(lowerCase);
   };
 

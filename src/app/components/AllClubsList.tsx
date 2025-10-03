@@ -31,7 +31,7 @@ function AllClubsList({clubs, searchTerm, isLoading, isError, }: { searchTerm: s
           <AllClubsListItem key={club._id} club={club} />
         ))
       ) : (
-        <li className={`${styles.noResults} fp`}>No clubs found matching  <strong> "{searchTerm}" </strong>. Please adjust your search criteria.</li>
+        <li className={`${styles.noResults} fp`}>No clubs found matching  <strong> &quot;{searchTerm}&quot; </strong>. Please adjust your search criteria.</li>
       )}
     </ul>
   )
