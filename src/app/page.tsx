@@ -15,6 +15,7 @@ import {
   QueryClient,
 } from '@tanstack/react-query'
 import HomeMainAside from "./components/MainSectionAside";
+import { HeroSection } from "./components/HeroSection";
 
 const postsQuery = `*[_type == "runClub"] | order(orderRank)`
 const options = { next: { revalidate: 30 } };
@@ -42,6 +43,7 @@ export default async function Home() {
         <WeatherWidget />
       </header>
       <main className={`${styles.main} container`}>
+        <HeroSection />
         <section className={`${styles.mainSection} fp`}>
           <div className={`${styles.mainSection__main} col-m-12 col-t-6 col-d-4`}>
           <h2 className={`${styles.mainSection__title} h3`}>
