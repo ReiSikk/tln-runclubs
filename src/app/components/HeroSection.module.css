@@ -49,13 +49,13 @@
     margin-top: auto;
   }
 
+  a {
+    &:hover {
+      background: var(--cream);
+    }
+  }
   button {
     width: 100%;
-    &:first-of-type {
-      &:hover {
-        background: var(--cream);
-      }
-    }
     &:last-of-type {
       &:hover {
         background: var(--cream);

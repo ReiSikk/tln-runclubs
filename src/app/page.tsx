@@ -49,7 +49,7 @@ export default async function Home() {
           <h2 className={`${styles.mainSection__title} h3`}>
             Clubs running in Tallinn today
           </h2>
-          <div className={styles.clubsList}>
+          <div className={styles.clubsList} id="home-clubs-list">
             <TodayClubsList />
           </div>
           </div>

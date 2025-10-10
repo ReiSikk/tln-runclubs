@@ -23,11 +23,11 @@ export const HeroSection = ({
           <p className="txt-body">Join fellow runners across Estonia and discover local clubs that match your pace and goals. Whether you're training for your first 5K or logging weekly miles with friends, there's a club waiting to welcome you.</p>
           
           <div className={`${styles.hero__actions} fp`}>
-            <button 
+            <a href="#home-clubs-list" 
               className="btn_main white"
             >
               Find a Club
-            </button>
+            </a>
             <button 
               className={`${styles.hero__submitButton} btn_main`}
             >
