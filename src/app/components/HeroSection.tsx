@@ -16,11 +16,10 @@ export const HeroSection = ({
   secondaryImageAlt = 'Secondary image',
 }: HeroSectionProps) => {
   return (
-    <section className={`${styles.hero} container`}>
-      <div className={`${styles.hero__container} fp`}>
+    <section className={`${styles.heroSection}`}>
+      <div className={`${styles.heroSection__wrapper}`}>
         <div className={`${styles.hero__main} fp-col`}>
-          <h1 className="h2">Find Your Running Community in Estonia</h1>
-          
+          <h1 className={`${styles.hero__title} h2`}>Find Your Running Community in Estonia</h1>
           <p className="txt-body">Join fellow runners across Estonia and discover local clubs that match your pace and goals. Whether you're training for your first 5K or logging weekly miles with friends, there's a club waiting to welcome you.</p>
           
           <div className={`${styles.hero__actions} fp`}>
@@ -66,7 +65,7 @@ export const HeroSection = ({
               <img 
                 src={secondaryImageSrc} 
                 alt={secondaryImageAlt}
-                className={styles.hero__image}
+                className={styles.hero__image_secondary}
               />
             ) : (
               <div className={styles.hero__imagePlaceholder}>
