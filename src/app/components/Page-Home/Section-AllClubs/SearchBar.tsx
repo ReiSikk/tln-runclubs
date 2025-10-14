@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../page.module.css'
+import styles from '@/app/page.module.css'
 import { Search } from 'lucide-react'
 
 function SearchBar({ inputHandler }: { inputHandler: (e: React.ChangeEvent<HTMLInputElement>) => void }) {

@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import styles from "../page.module.css";
-import ctaImage from "../assets/runclub__img.webp"
+import styles from '@/app/page.module.css'
+import ctaImage from "../../assets/runclub__img.webp"
 import { LucideSendHorizonal } from "lucide-react";
 
 function CtaSection({ variant }: { variant?: string }) {

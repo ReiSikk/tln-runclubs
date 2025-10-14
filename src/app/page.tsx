@@ -1,7 +1,8 @@
 // Components
-import CtaSection from "./components/CtaSection";
-import { TodayClubsList } from "./components/TodaysClubsList";
-import WeatherWidget from "./components/WeatherWidget";
+import MainSection from "./components/Page-Home/MainSection";
+import HeroSection  from "./components/Page-Home/HeroSection";
+import CtaSection from "./components/Page-Home/CtaSection";
+import WeatherWidget from "./components/Navbar/WeatherWidget";
 // Sanity
 import sanityClient from "../sanity/client";
 // Types
@@ -14,8 +15,6 @@ import {
   HydrationBoundary,
   QueryClient,
 } from '@tanstack/react-query'
-import HomeMainAside from "./components/MainSectionAside";
-import { HeroSection } from "./components/HeroSection";
 
 const postsQuery = `*[_type == "runClub"] | order(orderRank)`
 const options = { next: { revalidate: 30 } };
@@ -39,22 +38,12 @@ export default async function Home() {
     <HydrationBoundary state={dehydrate(queryClient)}>
     <div className={`${styles.page}`}>
       <header className={`${styles.header} container`}>
-        <h1 className={`${styles.siteTitle} italic uppercase`}>Tln Run Clubs</h1>
+        <h1 className={`${styles.siteTitle} italic uppercase`}>Run Clubs Est</h1>
         <WeatherWidget />
       </header>
       <main className={`${styles.main} container`}>
         <HeroSection />
-        <section className={`${styles.mainSection} fp`}>
-          <div className={`${styles.mainSection__main} col-m-12 col-t-6 col-d-4`}>
-          <h2 className={`${styles.mainSection__title} h3`}>
-            Clubs running in Tallinn today
-          </h2>
-          <div className={styles.clubsList} id="home-clubs-list">
-            <TodayClubsList />
-          </div>
-          </div>
-          <HomeMainAside />
-        </section>
+        <MainSection />
         <CtaSection />
       </main>
       <footer className={styles.footer}>

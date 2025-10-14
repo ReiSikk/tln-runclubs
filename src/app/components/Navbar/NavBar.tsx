@@ -4,7 +4,7 @@ import React from 'react'
 import { useEffect, useState } from 'react'
 import Link from 'next/link';
 import { LucideMoveLeft } from 'lucide-react';
-import WeatherWidget from '@/app/components/WeatherWidget';
+import WeatherWidget from '@/app/components/Navbar/WeatherWidget';
 
 function NavBar() {
     const [isScrolled, setScrolled] = useState(false);

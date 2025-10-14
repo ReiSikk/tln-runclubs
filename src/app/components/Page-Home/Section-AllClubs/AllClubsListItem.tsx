@@ -1,8 +1,8 @@
 import React from 'react'
-import styles from '../page.module.css'
+import styles from '@/app/page.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
-import { RunClub } from '../lib/types'
+import { RunClub } from '@/app/lib/types'
 
 function AllClubsListItem({ club }: { club: RunClub }) {
   const slug = club?.slug?.current;

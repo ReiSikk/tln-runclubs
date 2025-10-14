@@ -1,7 +1,7 @@
 import React from 'react'
 import { ArrowUpRight, Calendar, Clock, MapPin } from 'lucide-react';
 import styles from './TodayClubsList.module.css';
-import { RunClub } from '../lib/types';
+import { RunClub } from '@/app/lib/types';
 import Link from 'next/link';
 
 function TodaysClubsListItem({ club }: { club: RunClub }) {

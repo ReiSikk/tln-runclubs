@@ -2,8 +2,8 @@ import styles from './page.module.css'
 import Link from 'next/link';
 import Image from 'next/image';
 // Components
-import CtaSection from '@/app/components/CtaSection';
-import NavBar from '@/app/components/NavBar';
+import CtaSection from '@/app/components/Page-Home/CtaSection';
+import NavBar from '@/app/components/Navbar/NavBar';
 import { LucideLink, LucideMoveLeft } from 'lucide-react';
 // Types
 import { RunClub } from '@/app/lib/types';

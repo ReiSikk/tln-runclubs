@@ -2,6 +2,17 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
+
+  &.no_clubs {
+    .todayClubsList__item {
+      background: #1a1a1a;
+      color: var(--white);
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 }
 
 .todayClubsList__item {
@@ -26,7 +37,7 @@
   margin-bottom: 24px;
 
   @media only screen and (min-width: 768px) and (max-width: 1024px), only screen and (min-width: 1025px) {
-      margin-bottom: 12px;
+    margin-bottom: 12px;
   }
 }
 
@@ -43,7 +54,10 @@
   font-weight: 500;
   line-height: 1;
   border: 1px solid transparent;
-  box-shadow: 0 2px 4px -1px rgb(0 0 0 / 16%), 0 4px 5px 0 rgb(0 0 0 / 11%), 0 1px 10px 0 rgb(0 0 0 / 10%);
+  box-shadow:
+    0 2px 4px -1px rgb(0 0 0 / 16%),
+    0 4px 5px 0 rgb(0 0 0 / 11%),
+    0 1px 10px 0 rgb(0 0 0 / 10%);
 }
 
 .todayClubsList__status--startingSoon {
@@ -77,9 +91,10 @@
   font-size: 1.4rem;
   font-weight: 600;
   text-transform: uppercase;
-  transition: opacity 0.2s ease, transform 0.3s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.3s ease;
 
-  
   &::before {
     content: " ";
     position: absolute;
@@ -91,7 +106,6 @@
   align-items: center;
   justify-content: flex-end;
   gap: 4px;
-
 }
 .todayClubsList__linkIcon {
 }

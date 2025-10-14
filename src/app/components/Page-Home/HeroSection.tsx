@@ -1,5 +1,3 @@
-// HeroSection.tsx
-import React from 'react';
 import styles from './HeroSection.module.css';
 
 interface HeroSectionProps {
@@ -9,34 +7,35 @@ interface HeroSectionProps {
   secondaryImageAlt?: string;
 }
 
-export const HeroSection = ({
+function HeroSection ({
   mainImageSrc,
   mainImageAlt = 'Main image',
   secondaryImageSrc,
   secondaryImageAlt = 'Secondary image',
-}: HeroSectionProps) => {
+}: HeroSectionProps) {
   return (
     <section className={`${styles.heroSection}`}>
       <div className={`${styles.heroSection__wrapper}`}>
         <div className={`${styles.hero__main} fp-col`}>
-          <h1 className={`${styles.hero__title} h2`}>Find Your Running Community in Estonia</h1>
-          <p className="txt-body">Join fellow runners across Estonia and discover local clubs that match your pace and goals. Whether you're training for your first 5K or logging weekly miles with friends, there's a club waiting to welcome you.</p>
-          
+          <h1 className={`${styles.hero__title} h2`}>Find Your Running Community in Estonia</h1>    
           <div className={`${styles.hero__actions} fp`}>
-            <a href="#home-clubs-list" 
-              className="btn_main white"
-            >
-              Find a Club
-            </a>
-            <button 
-              className={`${styles.hero__submitButton} btn_main`}
-            >
-              Submit a new club
-            </button>
+            <p className="txt-body">Join fellow runners across Estonia and discover local clubs that match your pace and goals. Whether you&apos;re training for your first 5K or logging weekly miles with friends, there&apos;s a club waiting to welcome you.</p>
+            <div className={`${styles.buttons} fp`}>
+              <a href="#home-clubs-list" 
+                className="btn_main white"
+              >
+                Find a Club
+              </a>
+              <button 
+                className={`${styles.hero__submitButton} btn_main`}
+              >
+                Submit a new club
+              </button>
+            </div>
           </div>
         </div>
-        
-        <div className={styles.hero__side}>
+
+        <div className={`${styles.hero__side} fp`}>
           <div className={styles.hero__imageWrapper}>
             {mainImageSrc ? (
               <img 
@@ -87,3 +86,6 @@ export const HeroSection = ({
     </section>
   );
 };
+
+
+export default HeroSection;
