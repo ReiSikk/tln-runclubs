@@ -11,6 +11,10 @@ interface TodayClubsListProps {
   isError: boolean;
 }
 
+export type FormattedRunClub = Omit<RunClub, 'days'> & {
+  days: string;
+};
+
 export function TodayClubsList({ clubs, isLoading, isError  }: TodayClubsListProps) {
 
   if (isLoading) {
@@ -21,7 +25,6 @@ export function TodayClubsList({ clubs, isLoading, isError  }: TodayClubsListPro
     return <div className={`${styles.todayClubsList} error`}>Error loading clubs</div>
   }
 
-  // Get today's day name
   const today = new Date().toLocaleString('en-US', { weekday: 'long' }).toLowerCase();
   
   // Filter clubs that run today
@@ -33,10 +36,10 @@ export function TodayClubsList({ clubs, isLoading, isError  }: TodayClubsListPro
   );
 
   // Format the clubs
-  const formattedClubs = todaysClubs.map((club: RunClub) => ({
-    ...club,
-    days: convertDaysToAbbs(club.days).join(', ')
-  }));
+const formattedClubs: FormattedRunClub[] = todaysClubs.map((club: RunClub): FormattedRunClub => ({
+  ...club,
+  days: convertDaysToAbbs(club.days).join(', ')
+}));
 
   if (formattedClubs.length === 0) {
     return (
@@ -55,7 +58,7 @@ export function TodayClubsList({ clubs, isLoading, isError  }: TodayClubsListPro
   return (
     <ul className={styles.todayClubsList}>
       {todaysClubs.map((club) => (
-        <TodaysClubsListItem key={club._id} club={club} />
+        <TodaysClubsListItem key={club._id} club={club}  formattedDays={convertDaysToAbbs(club.days).join(', ')}/>
       ))}
     </ul>
   );

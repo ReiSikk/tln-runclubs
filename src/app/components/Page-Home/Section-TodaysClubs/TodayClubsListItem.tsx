@@ -3,9 +3,17 @@ import { ArrowUpRight, Calendar, Clock, MapPin } from 'lucide-react';
 import styles from './TodayClubsList.module.css';
 import { RunClub } from '@/app/lib/types';
 import Link from 'next/link';
+import { convertDaysToAbbs } from '@/app/lib/utils/convertDays';
 
-function TodaysClubsListItem({ club }: { club: RunClub }) {
+
+interface TodaysClubsListItemProps {
+  club: RunClub;
+  formattedDays?: string;
+}
+
+function TodaysClubsListItem({ club, formattedDays }: TodaysClubsListItemProps) {
   const slug = club?.slug?.current;
+  const displayDays = formattedDays || convertDaysToAbbs(club.days).join(', ');
 
   // const getStatusClass = (status: RunClub['status']) => {
   //   switch (status) {
@@ -48,9 +56,7 @@ function TodaysClubsListItem({ club }: { club: RunClub }) {
             }
             <div className={styles.todayClubsList__row}>
                 <Calendar className={styles.todayClubsList__icon} />
-                {club.days.map((day: string, index: number) => (
-                  <span key={index} className=''>{day}</span>
-                ))}
+                {displayDays}
             </div>
         </div>
           <Link className={styles.todayClubsList__link} href={`/runclubs/${slug}`} aria-label={`View more details about ${club.name} run club`}>
