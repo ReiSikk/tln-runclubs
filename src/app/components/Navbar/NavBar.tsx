@@ -2,9 +2,11 @@
 
 import React from 'react'
 import { useEffect, useState } from 'react'
+import Image from 'next/image';
 import Link from 'next/link';
 import { LucideMoveLeft } from 'lucide-react';
 import WeatherWidget from '@/app/components/Navbar/WeatherWidget';
+import LogoImg from '@/app/assets/runclubs__logo.svg';
 
 function NavBar() {
     const [isScrolled, setScrolled] = useState(false);
@@ -34,7 +36,16 @@ function NavBar() {
           </div>
           Back
         </Link>
-        <h1 className="siteNav__title uppercase h4 italic">Tln run clubs</h1>
+        <Link className="siteNav__logo" href={'/'}>
+          <Image 
+            src={LogoImg} 
+            alt="Link to home page. Run clubs Estonia logo" 
+            width={64}
+            height={64}
+            className=''
+            priority 
+            /> 
+        </Link>
         <WeatherWidget />
       </nav>
   )

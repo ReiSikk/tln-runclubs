@@ -3,9 +3,15 @@ import styles from '@/app/page.module.css'
 import Image from 'next/image'
 import Link from 'next/link'
 import { RunClub } from '@/app/lib/types'
+import { urlFor } from "@/sanity/client";
+
 
 function AllClubsListItem({ club }: { club: RunClub }) {
   const slug = club?.slug?.current;
+  const logo = club?.logo;
+  console.log('Club data:', club);
+  console.log("Club logo url", club?.logo ? urlFor(club.logo).url() : 'No logo');
+
 
   if (!club) {
     return (
@@ -17,18 +23,36 @@ function AllClubsListItem({ club }: { club: RunClub }) {
 
   return (
      <li className={styles.allClubsList__item}>
-        <Image
-          src="https://placehold.co/64x64"
-          alt="Buns runs club"
-          width={64}
-          height={64}
-          unoptimized
-          className={styles.allClubsList__image}
-        />
-        <span>
+          {club.logo ? (
+          <Image
+            src={urlFor(club.logo)
+              .width(128)
+              .height(128)
+              .url()}
+            alt={`${club.name} logo`}
+            width={128}
+            height={128}
+            className={styles.allClubsList__image}
+            priority
+          />
+        ) : (
+             <Image
+              unoptimized
+              src="https://placehold.co/128x128/svg?text=No+logo+found"
+              alt={`${club.name} logo`}
+              width={128}
+              height={128}
+              className={styles.allClubsList__image}
+              priority
+            />
+        )}
+        <h4>
           {club.name}
-        </span>
-        <Link href={`runclubs/${slug}`} type="button" className={`${styles.allClubsList__btn} txt-btn`} aria-label="Go to run club page to see more info">View</Link>
+        </h4>
+        <Link href={`runclubs/${slug}`} type="button" className={`${styles.allClubsList__btn} btn_small btn-txt-anim`} aria-label="Go to run club page to see more info">
+            <span className="txt-main">View</span>
+            <span className="txt-hovered">View</span>
+        </Link>
     </li>
   )
 }

@@ -21,8 +21,7 @@ async function getCurrentRunClub(slug: string): Promise<RunClub | null> {
 async function SingleRunClubPage({ params }: { params: { slug: string } }) {
   const { slug } = await params;
   const club = await getCurrentRunClub(slug);
-  console.log(club);
-  console.log("Club logo url", club?.logo ? urlFor(club.logo).url() : 'No logo');
+  // console.log("Club logo url", club?.logo ? urlFor(club.logo).url() : 'No logo');
 
   // Check for social icons 
   const hasFacebook = club?.facebook && club.facebook.trim() !== '';

@@ -27,11 +27,6 @@ function SearchBar({ inputHandler }: { inputHandler: (e: React.ChangeEvent<HTMLI
       enterKeyHint="search"
       onChange={inputHandler}
     />
-
-    <button type="submit" className={`${styles.searchField__button} btn_small btn-txt-anim`} aria-label="Submit search">
-      <span className="txt-main">Search</span>
-      <span className="txt-hovered">Search</span>
-    </button>
   </div>
 </form>
   )

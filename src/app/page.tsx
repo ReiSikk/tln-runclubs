@@ -46,8 +46,6 @@ export default async function Home() {
         <MainSection />
         <CtaSection />
       </main>
-      <footer className={styles.footer}>
-      </footer>
     </div>
     </HydrationBoundary>
   );

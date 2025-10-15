@@ -1,18 +1,9 @@
 import styles from './HeroSection.module.css';
+import mainImageSrc from '@/app/assets/hero__main.webp';
+import secondaryImageSrc from '@/app/assets/hero__secondary.webp';
+import Image from 'next/image';
 
-interface HeroSectionProps {
-  mainImageSrc?: string;
-  mainImageAlt?: string;
-  secondaryImageSrc?: string;
-  secondaryImageAlt?: string;
-}
-
-function HeroSection ({
-  mainImageSrc,
-  mainImageAlt = 'Main image',
-  secondaryImageSrc,
-  secondaryImageAlt = 'Secondary image',
-}: HeroSectionProps) {
+function HeroSection () {
   return (
     <section className={`${styles.heroSection}`}>
       <div className={`${styles.heroSection__wrapper}`}>
@@ -38,46 +29,46 @@ function HeroSection ({
         <div className={`${styles.hero__side} fp`}>
           <div className={styles.hero__imageWrapper}>
             {mainImageSrc ? (
-              <img 
+              <Image 
                 src={mainImageSrc} 
-                alt={mainImageAlt}
+                alt={"Runners in a scenic outdoor setting"}
+                width={438}
+                height={657}
                 className={styles.hero__image}
               />
             ) : (
-              <div className={styles.hero__imagePlaceholder}>
-                <svg 
-                  className={styles.hero__placeholderIcon}
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect width="24" height="24" rx="4" fill="#B8B8B8"/>
-                  <path d="M8 14L10.5 11L13 14L16 10L18 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <circle cx="9" cy="8" r="1.5" fill="white"/>
-                </svg>
+              <div>
+                <Image
+                  unoptimized
+                  src="https://placehold.co/438x657/svg?text=No+image+found"
+                  alt="Placeholder image"
+                  width={438}
+                  height={657}
+                  className={styles.hero__image}
+                />
               </div>
             )}
           </div>
           
           <div className={`${styles.hero__imageWrapper} ${styles['hero__imageWrapper--small']}`}>
             {secondaryImageSrc ? (
-              <img 
+              <Image 
                 src={secondaryImageSrc} 
-                alt={secondaryImageAlt}
+                alt={"Runners in a scenic outdoor setting"}
+                width={328}
+                height={328}
                 className={styles.hero__image_secondary}
               />
             ) : (
               <div className={styles.hero__imagePlaceholder}>
-                <svg 
-                  className={styles.hero__placeholderIcon}
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect width="24" height="24" rx="4" fill="#B8B8B8"/>
-                  <path d="M8 14L10.5 11L13 14L16 10L18 13" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  <circle cx="9" cy="8" r="1.5" fill="white"/>
-                </svg>
+                <Image 
+                  unoptimized
+                  src={"https://placehold.co/328x328/svg?text=No+image+found"} 
+                  alt={"Runners in a scenic outdoor setting"}
+                  width={328}
+                  height={328}
+                  className={styles.hero__image_secondary}
+                />
               </div>
             )}
           </div>

@@ -18,13 +18,11 @@
 
   @media only screen and (min-width: 768px) and (max-width: 1024px), only screen and (min-width: 1025px) {
     flex-direction: row;
-    gap: 6.4rem;
   }
 }
 .hero__main {
-
   @media only screen and (min-width: 768px) and (max-width: 1024px) {
-      width: 50%;
+    width: 50%;
   }
 
   @media only screen and (min-width: 1025px) {
@@ -54,13 +52,14 @@
   align-items: center;
   flex-wrap: nowrap;
 
-  @media only screen and (min-width: 768px) and (max-width: 1024px), only screen and (min-width: 1025px) {
-    flex-wrap: wrap;
-  }
-
-   a {
+  a {
     &:hover {
       background: var(--cream);
+    }
+
+    @media only screen and (min-width: 768px) and (max-width: 1024px), only screen and (min-width: 1025px) {
+      max-width: 215px;
+      text-wrap: nowrap;
     }
   }
   button {
@@ -72,6 +71,7 @@
     }
     @media only screen and (min-width: 768px) and (max-width: 1024px), only screen and (min-width: 1025px) {
       max-width: 215px;
+      text-wrap: nowrap;
     }
   }
 }
@@ -87,7 +87,7 @@
   flex-wrap: nowrap;
 
   @media only screen and (min-width: 768px) and (max-width: 1024px) {
-      width: 50%;
+    width: 50%;
   }
 
   @media only screen and (min-width: 1025px) {
@@ -96,8 +96,7 @@
 }
 
 .hero__imageWrapper {
-  background-color: #d9d9d9;
-  border-radius: 0.5rem;
+  border-radius: 8px;
   overflow: hidden;
   aspect-ratio: 438 / 657;
   display: flex;
@@ -109,34 +108,17 @@
 
 .hero__imageWrapper--small {
   aspect-ratio: 1 / 1;
-  justify-self: end;
   max-width: 328px;
 }
 
 .hero__image {
-  width: 30.416vw;
-  min-width: 280px;
-  max-width: 438px;
   height: 63.9vh;
   max-height: 657px;
   height: 100%;
   object-fit: cover;
 }
-
-.hero__imagePlaceholder {
-  width: 30.416vw;
-  min-width: 280px;
-  height: 63.9vh;
-  max-height: 657px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #d9d9d9;
-}
-
-.hero__placeholderIcon {
-  width: 7.5rem;
-  height: 7.5rem;
-  opacity: 0.6;
+.hero__image_secondary {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
