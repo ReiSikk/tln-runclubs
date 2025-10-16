@@ -9,8 +9,6 @@ import { urlFor } from "@/sanity/client";
 function AllClubsListItem({ club }: { club: RunClub }) {
   const slug = club?.slug?.current;
   const logo = club?.logo;
-  console.log('Club data:', club);
-  console.log("Club logo url", club?.logo ? urlFor(club.logo).url() : 'No logo');
 
 
   if (!club) {
@@ -23,9 +21,9 @@ function AllClubsListItem({ club }: { club: RunClub }) {
 
   return (
      <li className={styles.allClubsList__item}>
-          {club.logo ? (
+          {logo ? (
           <Image
-            src={urlFor(club.logo)
+            src={urlFor(logo)
               .width(128)
               .height(128)
               .url()}

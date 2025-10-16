@@ -623,7 +623,7 @@ ol {
       color: var(--dark);
     }
 
-    img {
+    .coffeeImage {
       height: 32px;
     }
 

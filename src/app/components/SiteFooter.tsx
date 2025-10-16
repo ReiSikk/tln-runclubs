@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 
 function SiteFooter() {
   return (
@@ -15,7 +16,10 @@ function SiteFooter() {
           href="https://www.buymeacoffee.com/tlnrunclubs"
           rel="noopener noreferrer"
         >
-          <img
+          <Image
+            unoptimized
+            height={32}
+            width={32}
             className="coffeeImage"
             src="https://cdn.buymeacoffee.com/buttons/bmc-new-btn-logo.svg"
             alt="Buy me a coffee"
