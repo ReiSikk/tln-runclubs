@@ -35,9 +35,7 @@ export default function WeatherWidget() {
     fetchData();
   }, []);
 
-  if (loading) return <div className={styles.weatherWidget}>Loading weather data...</div>;
-
-  if (error || !data) return <div className={styles.weatherWidget}>{error}</div>;
+  if (loading || error || !data) return null;
 
   return (
     <div className={styles.weatherWidget}>

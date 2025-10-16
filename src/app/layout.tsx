@@ -35,11 +35,11 @@ export default function RootLayout({
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
-        <title>Tallinn Run Clubs</title>
-        <meta name="description" content="Find running clubs in Tallinn, Estonia" />
-        <meta name="keywords" content="running, clubs, Tallinn, Estonia, fitness, health, community" />
+        <title>Run Clubs Estonia</title>
+        <meta name="description" content="Find running clubs in Estonia." />
+        <meta name="keywords" content="running, runclubs, run clubs, Estonia, Eesti run clubs, Estonia run clubs, Run clubs in Estonia, Run clubs in Tallinn, Run Clubs in Tartu, Tartu, Tallinn, jooksuklubid, jooksmine, jooksijad eestis, Eesti run club, Eesti runners, run groups Estonia, run groups Tallinn, run groups Tartu, running club, running clubs, running clubs in Estonia, running clubs in Tallinn, running clubs in Tartu, running clubs in Pärnu" />
         <meta name="author" content="Rei Sikk" />
-        <meta property="og:title" content="Tallinn Run Clubs" />
+        <meta property="og:title" content="Run Clubs Estonia" />
       </Head>
         <body className={`${geistSans.variable} ${geistMono.variable} ${workSans.variable}`}>
           <Providers>{children}</Providers>
