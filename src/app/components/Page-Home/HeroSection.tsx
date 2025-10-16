@@ -35,6 +35,7 @@ function HeroSection () {
                 width={438}
                 height={657}
                 className={styles.hero__image}
+                priority
               />
             ) : (
               <div>
