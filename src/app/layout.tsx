@@ -21,8 +21,8 @@ const workSans = Work_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Tallinn Run Clubs",
-  description: "Find running clubs in Tallinn, Estonia",
+  title: "Run Clubs Estonia",
+  description: "Find running clubs in Estonia",
 };
 
 export default function RootLayout({

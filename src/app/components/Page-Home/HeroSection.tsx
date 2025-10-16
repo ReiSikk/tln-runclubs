@@ -17,11 +17,14 @@ function HeroSection () {
               >
                 Find a Club
               </a>
-              <button 
+              <a
+                href="https://tally.so/r/w87zDO"
+                target="_blank"
+                rel="noopener noreferrer" 
                 className={`${styles.hero__submitButton} btn_main`}
               >
                 Submit a new club
-              </button>
+              </a>
             </div>
           </div>
         </div>

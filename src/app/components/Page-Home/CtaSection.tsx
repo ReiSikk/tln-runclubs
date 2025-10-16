@@ -10,7 +10,7 @@ function CtaSection({ variant }: { variant?: string }) {
       <div className={`${styles.ctaSection__main} col-m-12 col-t-6 col-d-6`}>
         <h4 className={`${styles.ctaSection__title} h2 italic`}>Know of a run club we haven&apos;t listed?</h4>
         <p className={styles.ctaSection__text}>
-          Help us build the most comprehensive directory of run clubs in Tallinn. Submit your club or suggest one you
+          Help us build the most comprehensive directory of run clubs in Estonia. Submit your club or suggest one you
           know about.
         </p>
         {/* //TODO: Add correct form link here!! */}
