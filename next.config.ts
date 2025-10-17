@@ -21,6 +21,15 @@ const nextConfig: NextConfig = {
           source: "/relay-5LNQi9/:path*",
           destination: "https://eu.i.posthog.com/:path*",
         },
+        // Umami analytics rewrites to bypass Adblockers
+        {
+          source: "/js/analytics.js",
+          destination: "https://cloud.umami.is/script.js",
+        },
+        {
+          source: "/api/collect",
+          destination: "https://cloud.umami.is/api/collect",
+        },
       ];
     },
     skipTrailingSlashRedirect: true,

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Geist, Geist_Mono, Work_Sans } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
@@ -48,6 +49,13 @@ export default function RootLayout({
               <Providers>{children}</Providers>
               <SiteFooter />
             </PostHogProvider>
+            <Script
+              src="/js/analytics.js"
+              data-website-id="29687d07-3b1b-4f5d-a98b-6dcdd0623397"
+              data-host-url="/api/collect"
+              strategy="afterInteractive"
+              defer
+            />
         </body>
     </html>
   );
