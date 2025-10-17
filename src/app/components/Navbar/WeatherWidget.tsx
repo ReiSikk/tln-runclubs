@@ -56,16 +56,13 @@ const reverseGeocode = async (lat: number, lon: number) => {
 
 const getUserLocation = async () => {
   if (!("geolocation" in navigator)) {
-    console.log("Geolocation is not available");
+    alert("Geolocation is not available. Please enable location services in your browser settings.");
     return null;
   }
 
   try {
     const position = await new Promise<GeolocationPosition>((resolve, reject) =>
-      navigator.geolocation.getCurrentPosition(resolve, reject, {
-        timeout: 10000,
-        enableHighAccuracy: false
-      })
+      navigator.geolocation.getCurrentPosition(resolve, reject)
     );
 
     const city = await reverseGeocode(position.coords.latitude, position.coords.longitude);
@@ -81,68 +78,34 @@ export default function WeatherWidget() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [userCity, setUserCity] = useState<string | null>(null);
-  const [hasLocationPermission, setHasLocationPermission] = useState<boolean | null>(null);
 
   useEffect(() => {
-    async function checkPermissionAndFetchWeather() {
+    async function getLocationAndFetchWeather() {
       try {
-        // Check if permissions API is available
-        if ('permissions' in navigator) {
-          const permission = await navigator.permissions.query({ name: 'geolocation' });
-          
-          if (permission.state === 'denied') {
-            setHasLocationPermission(false);
-            setLoading(false);
-            return; // Don't render anything
-          }
-          
-          if (permission.state === 'prompt') {
-            setHasLocationPermission(false);
-            setLoading(false);
-            return; // Don't render anything
-          }
-          
-          // Permission is granted
-          setHasLocationPermission(true);
-        }
-
         // Get user location
         const city = await getUserLocation();
-        
-        // If getUserLocation failed but we expected it to work, don't render
-        if (hasLocationPermission && !city) {
-          setHasLocationPermission(false);
-          setLoading(false);
-          return;
-        }
-
         if (city) {
           setUserCity(city);
         }
         
-        // Fetch weather data
+        // Fetch weather data + city
         const weatherCity = city || "Tallinn";
         const res = await fetch(`/api/weather?city=${encodeURIComponent(weatherCity)}`);
         
         if (!res.ok) throw new Error("Request failed");
         const json = await res.json();
         setData(json);
-        
       } catch (error) {
-        console.error("Weather widget error:", error);
         setError(error instanceof Error ? error.message : String(error));
-        setHasLocationPermission(false);
       } finally {
         setLoading(false);
       }
     }
 
-    checkPermissionAndFetchWeather();
+    getLocationAndFetchWeather();
   }, []);
 
-  if (loading || error || !data || hasLocationPermission === false) {
-    return null;
-  }
+  if (loading || error || !data) return null;
 
   return (
     <div className={styles.weatherWidget}>

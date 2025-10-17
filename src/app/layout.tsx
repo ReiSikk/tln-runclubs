@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Work_Sans } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
-import Providers from "./providers";
 import SiteFooter from "./components/SiteFooter";
+// Providers
+import Providers from "./providers/providers";
+import { PostHogProvider } from '@/app/providers/posthog-provider'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
@@ -42,8 +44,10 @@ export default function RootLayout({
         <meta property="og:title" content="Run Clubs Estonia" />
       </Head>
         <body className={`${geistSans.variable} ${geistMono.variable} ${workSans.variable}`}>
-          <Providers>{children}</Providers>
-          <SiteFooter />
+            <PostHogProvider>
+              <Providers>{children}</Providers>
+              <SiteFooter />
+            </PostHogProvider>
         </body>
     </html>
   );

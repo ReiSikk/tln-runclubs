@@ -13,7 +13,9 @@
     "@tanstack/react-query": "^5.90.2",
     "lucide-react": "^0.543.0",
     "next": "15.5.2",
-    "next-sanity": "^11.3.0",
+    "next-sanity": "^11.5.1",
+    "next-sanity-image": "^6.2.0",
+    "posthog-js": "^1.276.0",
     "react": "19.1.0",
     "react-dom": "19.1.0"
   },

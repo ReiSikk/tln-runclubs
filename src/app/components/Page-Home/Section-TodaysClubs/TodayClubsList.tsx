@@ -46,9 +46,9 @@ const formattedClubs: FormattedRunClub[] = todaysClubs.map((club: RunClub): Form
       <div className={`${styles.todayClubsList} ${styles.no_clubs}`}>
         <div className={styles.todayClubsList__item}>
           <p className='txt-body'>
-            {`No clubs running in your selected city today.`}
+            {`No clubs running in your selected city today matching your search term.`}
             <br />
-            {`Try selecting "All Cities" or check back another day!`}
+            {`Try selecting "All Cities", clearing your search term, or check back another day!`}
           </p>
         </div>
       </div>
