@@ -14,11 +14,11 @@ const nextConfig: NextConfig = {
     async rewrites() {
       return [
         {
-          source: "/ingest/static/:path*",
+          source: "/relay-5LNQi9/static/:path*",
           destination: "https://eu-assets.i.posthog.com/static/:path*",
         },
         {
-          source: "/ingest/:path*",
+          source: "/relay-5LNQi9/:path*",
           destination: "https://eu.i.posthog.com/:path*",
         },
       ];

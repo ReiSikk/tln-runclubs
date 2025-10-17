@@ -7,7 +7,7 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (typeof window !== 'undefined' && process.env.NEXT_PUBLIC_POSTHOG_KEY!) {
       posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
-        api_host: '/ingest', // Use rewrite path defined in next.config.ts
+        api_host: '/relay-5LNQi9', // Use rewrite path defined in next.config.ts
         ui_host: process.env.NEXT_PUBLIC_POSTHOG_UI_HOST!,
         person_profiles: 'always',
         defaults: '2025-05-24',
