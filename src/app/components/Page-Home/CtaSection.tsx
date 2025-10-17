@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import styles from '@/app/page.module.css'
-import ctaImage from "../../assets/runclub__img.webp"
+import ctaImage from '@/app/assets/runclub__img.webp'
 import { LucideSendHorizonal } from "lucide-react";
 
 function CtaSection({ variant }: { variant?: string }) {
@@ -13,8 +13,8 @@ function CtaSection({ variant }: { variant?: string }) {
           Help us build the most comprehensive directory of run clubs in Estonia. Submit your club or suggest one you
           know about.
         </p>
-        {/* //TODO: Add correct form link here!! */}
-          <a href="https://tally.so/r/w87zDO" className={`${styles.ctaSection__btn} btn_main `} target="_blank" rel="noopener noreferrer">
+          <a href="https://tally.so/r/w87zDO" className={`${styles.ctaSection__btn} btn_main `} target="_blank" rel="noopener noreferrer"   data-attr="hero-find-club-click"
+  data-custom-id="cta-find-club">
             Let us know!
             <div className="icon-carousel-anim">
               <LucideSendHorizonal width={16} height={16} strokeWidth={1.5}  className="icon-main"/>

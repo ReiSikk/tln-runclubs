@@ -22,6 +22,8 @@ function HeroSection () {
                 target="_blank"
                 rel="noopener noreferrer" 
                 className={`${styles.hero__submitButton} btn_main`}
+                data-attr="hero-submit-club-click"
+                data-custom-id="cta-to-tallyForm"
               >
                 Submit a new club
               </a>
