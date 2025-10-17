@@ -23,6 +23,7 @@ function HeroSection () {
                 rel="noopener noreferrer" 
                 className={`${styles.hero__submitButton} btn_main`}
                 data-attr="hero-submit-club-click"
+                data-umami-event="CTA to Tally form"
                 data-custom-id="cta-to-tallyForm"
               >
                 Submit a new club

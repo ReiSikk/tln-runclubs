@@ -581,12 +581,20 @@ ol {
   margin-bottom: 64px;
   flex-direction: column;
   width: 100%;
+  font-size: 1.6rem;
 
   a,
   span {
-    width: 100%;
     opacity: 0.8;
-    font-size: 1.6rem;
+  }
+    a > span {
+    opacity: 1;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  span:last-of-type {
+    margin-top: 8px;
   }
 
   @media only screen and (min-width: 768px) and (max-width: 1024px), only screen and (min-width: 1025px) {
@@ -632,14 +640,5 @@ ol {
       text-decoration: none;
       text-transform: none;
     }
-  }
-  a > span {
-    opacity: 1;
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-  span {
-    margin-top: 8px;
-    margin-left: 0;
   }
 }

@@ -13,8 +13,13 @@ function CtaSection({ variant }: { variant?: string }) {
           Help us build the most comprehensive directory of run clubs in Estonia. Submit your club or suggest one you
           know about.
         </p>
-          <a href="https://tally.so/r/w87zDO" className={`${styles.ctaSection__btn} btn_main `} target="_blank" rel="noopener noreferrer"   data-attr="hero-find-club-click"
-  data-custom-id="cta-find-club">
+          <a href="https://tally.so/r/w87zDO" 
+          className={`${styles.ctaSection__btn} btn_main `} target="_blank" 
+          rel="noopener noreferrer"   
+          data-attr="hero-find-club-click"
+          data-custom-id="cta-find-club"
+          data-umami-event="CTA to Tally form"
+          >
             Let us know!
             <div className="icon-carousel-anim">
               <LucideSendHorizonal width={16} height={16} strokeWidth={1.5}  className="icon-main"/>

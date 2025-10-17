@@ -6,7 +6,6 @@ import Head from "next/head";
 import SiteFooter from "./components/SiteFooter";
 // Providers
 import Providers from "./providers/providers";
-import { PostHogProvider } from '@/app/providers/posthog-provider'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -45,17 +44,14 @@ export default function RootLayout({
         <meta property="og:title" content="Run Clubs Estonia" />
       </Head>
         <body className={`${geistSans.variable} ${geistMono.variable} ${workSans.variable}`}>
-            <PostHogProvider>
               <Providers>{children}</Providers>
               <SiteFooter />
-            </PostHogProvider>
-            <Script
-              src="/js/analytics.js"
-              data-website-id="29687d07-3b1b-4f5d-a98b-6dcdd0623397"
-              data-host-url="/api/collect"
-              strategy="afterInteractive"
-              defer
-            />
+              <Script
+                src="/js/analytics.js"
+                data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
+                strategy="afterInteractive"
+                defer
+              />
         </body>
     </html>
   );

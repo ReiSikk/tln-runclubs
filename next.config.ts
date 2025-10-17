@@ -26,10 +26,6 @@ const nextConfig: NextConfig = {
           source: "/js/analytics.js",
           destination: "https://cloud.umami.is/script.js",
         },
-        {
-          source: "/api/collect",
-          destination: "https://cloud.umami.is/api/collect",
-        },
       ];
     },
     skipTrailingSlashRedirect: true,

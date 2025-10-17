@@ -6,7 +6,7 @@ function SiteFooter() {
     <footer className="siteFooter container">
         <div className="sitefooter__main fp">
           <h5 className="siteFooter__title h1 uppercase italic">Run Clubs Est</h5>
-          <a href="https://www.reihopsti.ee" target="_blank" rel="noopener noreferrer">Idea, design & code by <span>Rei Sikk</span></a>
+          <a href="https://www.reihopsti.ee" target="_blank" rel="noopener noreferrer" data-umami-event="Clicked Portfolio link in footer">Idea, design & code by <span className='underline'>Rei Sikk</span></a>
           <span>All rights reserved © {new Date().getFullYear()}</span>
         </div>
         <div className="siteFooter__side fp">
@@ -15,6 +15,7 @@ function SiteFooter() {
           target="_blank"
           href="https://www.buymeacoffee.com/tlnrunclubs"
           rel="noopener noreferrer"
+          data-umami-event="Clicked Buy Me A Coffee in Footer"
         >
           <Image
             unoptimized

@@ -26,6 +26,7 @@ function SearchBar({ inputHandler }: { inputHandler: (e: React.ChangeEvent<HTMLI
       autoComplete="off"
       enterKeyHint="search"
       onChange={inputHandler}
+      data-umami-event="Clicked on SearchBar"
     />
   </div>
 </form>
