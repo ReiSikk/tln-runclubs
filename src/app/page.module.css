@@ -135,13 +135,13 @@
 
   form {
     flex: 1;
-    max-width: 600px;
+    max-width: 450px;
   }
 }
 .side__title {
   position: relative;
-  margin-bottom: 24px;
   width: fit-content;
+  margin-bottom: 16px;
 }
 .side__count {
   position: absolute;
