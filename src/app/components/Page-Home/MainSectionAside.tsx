@@ -77,7 +77,7 @@ function HomeMainAside({
   };
 
   return (
-    <aside className={`${styles.mainSection__side} col-m-12 col-t-6 col-d-8`}>
+    <aside className={`${styles.mainSection__side} col-m-12 col-t-7 col-d-8`}>
         <h3 className={`${styles.side__title} h3`}>{selectedCity === 'all' ? 'All run clubs' : `Run clubs in ${selectedCity}`}<span className={`${styles.side__count}`}>{getFilteredClubsCount()}</span></h3>
         <div className={`${styles.side__filters} fp`}>
           <SearchBar inputHandler={inputHandler} />

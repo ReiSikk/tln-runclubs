@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { RunClub } from '@/app/lib/types'
 import { urlFor } from "@/sanity/client";
+import { LucideArrowUpRight } from 'lucide-react'
 
 
 function AllClubsListItem({ club }: { club: RunClub }) {
@@ -20,19 +21,19 @@ function AllClubsListItem({ club }: { club: RunClub }) {
   }
 
   return (
-     <li className={styles.allClubsList__item}>
+     <li className={`${styles.allClubsList__item} fp-col`}>
           {logo ? (
-          <Image
-            src={urlFor(logo)
-              .width(128)
-              .height(128)
-              .url()}
-            alt={`${club.name} logo`}
-            width={128}
-            height={128}
-            className={styles.allClubsList__image}
-            priority
-          />
+            <Image
+              src={urlFor(logo)
+                .width(880)
+                .height(880)
+                .url()}
+              alt={`${club.name} logo`}
+              width={880}
+              height={880}
+              className={styles.allClubsList__image}
+              priority
+            />
         ) : (
              <Image
               unoptimized
@@ -44,13 +45,15 @@ function AllClubsListItem({ club }: { club: RunClub }) {
               priority
             />
         )}
-        <h4>
-          {club.name}
-        </h4>
-        <Link href={`runclubs/${slug}`} type="button" className={`${styles.allClubsList__btn} btn_small btn-txt-anim`} aria-label="Go to run club page to see more info">
-            <span className="txt-main">View</span>
-            <span className="txt-hovered">View</span>
-        </Link>
+        <div className={`${styles.allClubsList__info} fp-col`}>
+          <h4 className=''>
+            {club.name}
+          </h4>
+            <Link href={`runclubs/${slug}`} type="button" className={`${styles.allClubsList__btn} btn_small btn-txt-anim`} aria-label="Go to run club page to see more info">
+              <span className="txt-main">Learn more <LucideArrowUpRight width={24} height={24} /></span>
+              <span className="txt-hovered">Learn more <LucideArrowUpRight width={24} height={24} /></span>
+          </Link>
+        </div>
     </li>
   )
 }

@@ -154,6 +154,45 @@ ol {
   flex-wrap: wrap;
 }
 
+.list-grid {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  display: grid;
+}
+.list-grid--2 {
+  grid-template-columns: repeat(1, 1fr);
+
+  @media only screen and (min-width: 768px) and (max-width: 1024px), only screen and (min-width: 1025px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+.list-grid--3 {
+  grid-template-columns: repeat(1, 1fr);
+
+  @media only screen and (min-width: 768px) and (max-width: 1024px), only screen and (min-width: 1025px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.list-grid--4 {
+  grid-template-columns: repeat(2, 1fr);
+
+  @media only screen and (min-width: 768px) and (max-width: 1024px), only screen and (min-width: 1025px) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.list-grid--5 {
+  grid-template-columns: repeat(1, 1fr);
+
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media only screen and (min-width: 1025px) {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
 /*
    Buttons
    ========================================================================== */
@@ -352,14 +391,17 @@ ol {
 .btn-txt-anim .txt-hovered,
 .icon-carousel-anim .icon-main,
 .icon-carousel-anim .icon-hovered {
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+
   transition:
     transform 0.3s ease,
     opacity 0.1s ease;
 }
 .btn-txt-anim .txt-main,
 .icon-carousel-anim .icon-main {
-  display: block;
   opacity: 1;
 }
 .icon-carousel-anim .icon-hovered {
@@ -587,7 +629,7 @@ ol {
   span {
     opacity: 0.8;
   }
-    a > span {
+  a > span {
     opacity: 1;
     text-decoration: underline;
     text-underline-offset: 2px;
@@ -598,7 +640,6 @@ ol {
   }
 
   @media only screen and (min-width: 768px) and (max-width: 1024px), only screen and (min-width: 1025px) {
-    flex-direction: row;
     width: 50%;
   }
 }

@@ -59,7 +59,7 @@ function MainSection() {
 
   return (
     <section className={`${styles.mainSection} fp`}>
-        <div className={`${styles.mainSection__main} col-m-12 col-t-6 col-d-4`}>
+        <div className={`${styles.mainSection__main} col-m-12 col-t-5 col-d-4`}>
         <h2 className={`${styles.mainSection__title} h3`}>
         Clubs running in {selectedCity === 'all' ? 'Estonia' : selectedCity} today
         </h2>

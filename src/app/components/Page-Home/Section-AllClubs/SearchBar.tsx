@@ -9,7 +9,7 @@ function SearchBar({ inputHandler }: { inputHandler: (e: React.ChangeEvent<HTMLI
     Search run clubs
   </label>
 
-  <div className={styles.searchField}>
+  <div className={`${styles.searchField} fp`}>
     <Search 
         className={styles.searchField__icon} 
         aria-hidden="true" 
