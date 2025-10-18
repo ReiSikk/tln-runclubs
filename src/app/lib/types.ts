@@ -13,7 +13,6 @@ export interface RunClub {
   distance: string;
   distanceDescription: string;
   days: string[];
-  daysLead: string;
   slug?: { current: string };
   status?: 'starting-soon' | 'in-progress' | 'upcoming';
   facebook?: string;

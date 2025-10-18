@@ -76,7 +76,6 @@ async function SingleRunClubPage({ params }: { params: { slug: string } }) {
               <h2 className={`${styles.cardTitle} h5`}>
                   {club.days?.map(day => day.charAt(0).toUpperCase() + day.slice(1)).join(', ')}
               </h2>
-              <p>{club.daysLead}</p>
             </div>
           </li>
           <li className={`${styles.pageHeader__card} fp`}>
