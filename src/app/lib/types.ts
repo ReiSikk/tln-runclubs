@@ -10,12 +10,12 @@ export interface RunClub {
   address: string;
   description: string;
   participants: number;
-  distanceRange: string;
-  distanceLead: string;
+  distance: string;
+  distanceDescription: string;
   days: string[];
   daysLead: string;
   slug?: { current: string };
-  status: 'starting-soon' | 'in-progress' | 'upcoming';
+  status?: 'starting-soon' | 'in-progress' | 'upcoming';
   facebook?: string;
   instagram?: string;
   strava?: string;

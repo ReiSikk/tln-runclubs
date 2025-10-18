@@ -223,7 +223,8 @@ ol {
     align-items: center;
     justify-content: space-between;
     text-align: left;
-    padding-inline: 4px;
+    padding-inline: 4px 16px;
+    gap: 1rem;
     padding-block: 4px;
     text-transform: none;
 
@@ -579,6 +580,7 @@ ol {
   color: var(--cream);
   align-items: center;
   justify-content: space-between;
+  flex-wrap: nowrap;
   gap: 4px 24px;
   transition: 0.3s ease;
   position: fixed;
@@ -589,8 +591,11 @@ ol {
 }
 .siteNav__logo {
   position: relative;
-  width: 64px;
-  height: 64px;
+
+  img {
+    width: clamp(48px, 6vw, 64px);
+    height: clamp(48px, 6vw, 64px);
+  }
 
   @media only screen and (min-width: 768px) and (max-width: 1024px), only screen and (min-width: 1025px) {
     position: absolute;

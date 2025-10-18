@@ -21,7 +21,6 @@ async function getCurrentRunClub(slug: string): Promise<RunClub | null> {
 async function SingleRunClubPage({ params }: { params: { slug: string } }) {
   const { slug } = await params;
   const club = await getCurrentRunClub(slug);
-  // console.log("Club logo url", club?.logo ? urlFor(club.logo).url() : 'No logo');
 
   // Check for social icons 
   const hasFacebook = club?.facebook && club.facebook.trim() !== '';
@@ -74,7 +73,9 @@ async function SingleRunClubPage({ params }: { params: { slug: string } }) {
           <li className={`${styles.pageHeader__card} fp`}>
             <span className={`${styles.label} uppercase txt-label`}>Schedule</span>
             <div className={styles.right}>
-              <h2 className={`${styles.cardTitle} h5`}>{club.days?.join(', ')}</h2>
+              <h2 className={`${styles.cardTitle} h5`}>
+                  {club.days?.map(day => day.charAt(0).toUpperCase() + day.slice(1)).join(', ')}
+              </h2>
               <p>{club.daysLead}</p>
             </div>
           </li>
@@ -85,13 +86,17 @@ async function SingleRunClubPage({ params }: { params: { slug: string } }) {
               <p>{club.address}</p>
             </div>
           </li>
-          <li className={`${styles.pageHeader__card} fp`}>
-            <span className={`${styles.label} uppercase txt-label`}>Distance</span>
-            <div className={styles.right}>
-              <h2 className={`${styles.cardTitle}`}>{club.distanceRange} kilometers</h2>
-              <p>{club.distanceLead}</p>
-            </div>
-          </li>
+          {club.distance &&
+            <li className={`${styles.pageHeader__card} fp`}>
+              <span className={`${styles.label} uppercase txt-label`}>Distance</span>
+              <div className={styles.right}>
+                <h2 className={`${styles.cardTitle}`}>{club.distance} kilometers</h2>
+                {club.distanceDescription &&
+                  <p>{club.distanceDescription}</p>
+                }
+              </div>
+            </li>
+          }
         </ul>
         <h3 className={`${styles.pageHeader__subtitle} txt-body`}>Visit our socials to stay in the loop for events!</h3>
         <ul className={`${styles.pageHeader__socials} list-flex`}>
