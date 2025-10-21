@@ -54,61 +54,56 @@ const reverseGeocode = async (lat: number, lon: number) => {
 };
 
 
-const getUserLocation = async () => {
-  if (!("geolocation" in navigator)) {
-    alert("Geolocation is not available. Please enable location services in your browser settings.");
-    return null;
-  }
+const getUserLocation = async (): Promise<string | null> => {
+  if (!("geolocation" in navigator)) return null;
 
   try {
-    const position = await new Promise<GeolocationPosition>((resolve, reject) =>
-      navigator.geolocation.getCurrentPosition(resolve, reject)
-    );
+    const position = await new Promise<GeolocationPosition>((resolve, reject) => {
+      navigator.geolocation.getCurrentPosition(resolve, reject, {
+        enableHighAccuracy: false,
+        timeout: 10000,
+        maximumAge: 300000
+      });
+    });
 
-    const city = await reverseGeocode(position.coords.latitude, position.coords.longitude);
-    return city;
-  } catch (error) {
-    console.error("Geolocation error:", error);
+    return await reverseGeocode(position.coords.latitude, position.coords.longitude);
+  } catch {
     return null;
   }
 };
 
 export default function WeatherWidget() {
   const [data, setData] = useState<WeatherData | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
   const [userCity, setUserCity] = useState<string | null>(null);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
 
   useEffect(() => {
-    async function getLocationAndFetchWeather() {
+    async function fetchWeatherData() {
       try {
-        // Get user location
         const city = await getUserLocation();
-        if (city) {
-          setUserCity(city);
+        if (city) setUserCity(city);
+
+        const res = await fetch(`/api/weather?city=${encodeURIComponent(city || "Tallinn")}`);
+        if (res.ok) {
+          setData(await res.json());
+
+          // Trigger animation on mount
+           setTimeout(() => setIsVisible(true), 100);
         }
-        
-        // Fetch weather data + city
-        const weatherCity = city || "Tallinn";
-        const res = await fetch(`/api/weather?city=${encodeURIComponent(weatherCity)}`);
-        
-        if (!res.ok) throw new Error("Request failed");
-        const json = await res.json();
-        setData(json);
       } catch (error) {
-        setError(error instanceof Error ? error.message : String(error));
-      } finally {
-        setLoading(false);
+        console.error("Weather error:", error);
       }
     }
 
-    getLocationAndFetchWeather();
+    fetchWeatherData();
+    
   }, []);
 
-  if (loading || error || !data) return null;
+  if (!data) return null;
+
 
   return (
-    <div className={styles.weatherWidget}>
+    <div className={`${styles.weatherWidget} ${isVisible ? styles.visible : ''}`}>
       Feels like {data.current.windchill_c}°C in {userCity || "your location"} | {data.current.condition.text}
       <Image
         src={data.current.condition.icon ? `https:${data.current.condition.icon}` : "https://placehold.co/16x16"}
