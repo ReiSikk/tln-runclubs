@@ -1,6 +1,7 @@
 import AllClubsListItem from '../Section-AllClubs/AllClubsListItem'
 import { RunClub } from '../../../lib/types'
 import styles from "../../../page.module.css"
+import { Search } from 'lucide-react';
 
 function AllClubsList({clubs, searchTerm, isLoading, isError, }: { searchTerm: string; clubs: RunClub[], isLoading: boolean; isError: boolean }) {
 
@@ -31,7 +32,14 @@ function AllClubsList({clubs, searchTerm, isLoading, isError, }: { searchTerm: s
           <AllClubsListItem key={club._id} club={club} />
         ))
       ) : (
-        <li className={`${styles.noResults} fp`}>No clubs found matching  <strong> &quot;{searchTerm}&quot; </strong>. Please adjust your search criteria.</li>
+        <li className={`${styles.noResults} fp-col`}>
+            <Search width={24} height={24} className=''/>
+            <span className='h5'>
+              {`No results for your search`}  
+            </span>
+            <br />
+            Try using different keywords or check the spelling.
+        </li>
       )}
     </ul>
   )

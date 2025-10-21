@@ -21,17 +21,21 @@ function AllClubsListItem({ club }: { club: RunClub }) {
   }
 
   return (
-     <li className={`${styles.allClubsList__item} fp-col`}>
+     <li className={styles.allClubsList__item}>
+        <Link href={`runclubs/${slug}`} className={`${styles.allClubsList__link} fp-col`}>
           {logo ? (
-            <Image
-              src={urlFor(logo)
-                .url()}
-              alt={`${club.name} logo`}
-              width={880}
-              height={880}
-              className={styles.allClubsList__image}
-              priority
-            />
+            <div className={styles.allClubsList__imageWrapper}>
+              <Image
+                src={urlFor(logo)
+                  .url()}
+                alt={`${club.name} logo`}
+                width={880}
+                height={880}
+                className={styles.allClubsList__image}
+                priority
+              />
+            </div>
+
         ) : (
              <Image
               unoptimized
@@ -47,11 +51,12 @@ function AllClubsListItem({ club }: { club: RunClub }) {
           <h4 className=''>
             {club.name}
           </h4>
-            <Link href={`runclubs/${slug}`} type="button" className={`${styles.allClubsList__btn} btn_small btn-txt-anim`} aria-label="Go to run club page to see more info">
+            <div role="button" className={`${styles.allClubsList__btn} btn_small btn-txt-anim`} aria-label="Go to run club page to see more info">
               <span className="txt-main">Learn more <LucideArrowUpRight width={24} height={24} /></span>
               <span className="txt-hovered">Learn more <LucideArrowUpRight width={24} height={24} /></span>
-          </Link>
+            </div>
         </div>
+      </Link>
     </li>
   )
 }

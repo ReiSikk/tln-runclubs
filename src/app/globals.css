@@ -311,6 +311,17 @@ ol {
 
 /* Only non-touch devices */
 @media (hover: hover) and (pointer: fine) {
+  /* Target All clubs list item card */
+  .page-module___8aEwW__allClubsList__item:hover .btn-txt-anim .txt-main {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.page-module___8aEwW__allClubsList__item:hover .btn-txt-anim .txt-hovered {
+  transform: translateY(0);
+  opacity: 1;
+}
+
   .btn-txt-anim:hover {
     filter: brightness(1.2);
   }
@@ -623,10 +634,10 @@ ol {
 .siteFooter {
   padding-bottom: 64px;
   color: var(--cream);
+  align-items: flex-end;
 }
 .sitefooter__main {
   margin-bottom: 64px;
-  flex-direction: column;
   width: 100%;
   font-size: 1.6rem;
 
@@ -646,22 +657,23 @@ ol {
 
   @media only screen and (min-width: 768px) and (max-width: 1024px), only screen and (min-width: 1025px) {
     width: 50%;
+    margin-bottom: 0;
   }
 }
 .siteFooter__title {
   max-width: 511px;
   margin-bottom: clamp(16px, 3vw, 32px);
+  line-height: 1.1;
 }
 .siteFooter__text {
 }
 .siteFooter__side {
   width: 100%;
   gap: 2rem;
-  align-items: center;
-
+  
   @media only screen and (min-width: 768px) and (max-width: 1024px), only screen and (min-width: 1025px) {
     width: 50%;
-    justify-content: end;
+    align-items: flex-end;
   }
 
   .siteFooter__bmac {
