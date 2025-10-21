@@ -4,6 +4,7 @@ import styles from './TodayClubsList.module.css';
 import TodaysClubsListItem from './TodayClubsListItem';
 import { convertDaysToAbbs } from "@/app/lib/utils/convertDays";
 import { RunClub } from '@/app/lib/types';
+import { Search } from 'lucide-react';
 
 interface TodayClubsListProps {
   clubs: RunClub[];
@@ -44,12 +45,14 @@ const formattedClubs: FormattedRunClub[] = todaysClubs.map((club: RunClub): Form
   if (formattedClubs.length === 0) {
     return (
       <div className={`${styles.todayClubsList} ${styles.no_clubs}`}>
-        <div className={styles.todayClubsList__item}>
-          <p className='txt-body'>
-            {`No clubs running in your selected city today matching your search term.`}
-            <br />
-            {`Try selecting "All Cities", clearing your search term, or check back another day!`}
-          </p>
+        <div className={`${styles.todayClubsList__item} fp-col`}>
+          <Search width={24} height={24} className=''/>
+          <div className='txt-body'>
+            <p className='h5'>
+              {`No clubs running in your selected city today matching your search`}  
+            </p>
+            {`Try using different keywords or check the spelling.`}
+          </div>
         </div>
       </div>
     )

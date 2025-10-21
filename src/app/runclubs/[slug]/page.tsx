@@ -47,8 +47,6 @@ async function SingleRunClubPage({ params }: { params: { slug: string } }) {
        {club.logo ? (
           <Image
             src={urlFor(club.logo)
-              .width(200)
-              .height(200)
               .url()}
             alt={`${club.name} logo`}
             width={614}

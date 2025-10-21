@@ -93,7 +93,7 @@
     justify-content: center;
     height: 48px;
     width: 48px;
-    border-radius: 200px;
+    border-radius: 999px;
     display: inline-flex;
     transition: background-color 0.2s ease;
   }
