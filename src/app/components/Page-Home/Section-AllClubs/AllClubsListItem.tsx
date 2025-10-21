@@ -25,8 +25,6 @@ function AllClubsListItem({ club }: { club: RunClub }) {
           {logo ? (
             <Image
               src={urlFor(logo)
-                .width(880)
-                .height(880)
                 .url()}
               alt={`${club.name} logo`}
               width={880}

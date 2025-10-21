@@ -205,7 +205,7 @@ ol {
   font-size: 1.4rem;
   font-weight: 500;
   border: 1px solid transparent;
-  border-radius: 200px;
+  border-radius: 999px;
   background: var(--dark);
   color: var(--cream);
   cursor: pointer;
@@ -250,7 +250,7 @@ ol {
   font-size: 1.4rem;
   font-weight: 500;
   border: 1.5px solid var(--cream);
-  border-radius: 200px;
+  border-radius: 999px;
   background: transparent;
   color: var(--cream);
   cursor: pointer;
@@ -291,7 +291,7 @@ ol {
   cursor: pointer;
   transition: all 0.2s ease;
   border: 2px solid transparent;
-  border-radius: 200px;
+  border-radius: 999px;
   padding-inline: 8px 16px;
   padding-block: 8px;
 
@@ -667,7 +667,7 @@ ol {
   .siteFooter__bmac {
     width: fit-content;
     flex-direction: row;
-    border-radius: 200px;
+    border-radius: 999px;
     background: var(--accent);
     gap: 1rem;
     height: fit-content;
