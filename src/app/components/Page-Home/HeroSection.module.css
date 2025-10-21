@@ -3,11 +3,15 @@
 .heroSection {
   background-color: var(--dark);
   color: var(--cream);
-  height: 100%;
   max-width: 100%;
-  padding-block: 6.4rem;
+  height: 100%;
+  padding-block:  4rem 6.4rem;
   @media only screen and (min-width: 768px) and (max-width: 1024px), only screen and (min-width: 1025px) {
-    padding-block: clamp(6.4rem, 11vw, 11.2rem);
+    padding-block: clamp(6.4rem, 8vw, 8rem);
+  }
+
+  @media only screen and (min-width: 1025px) {
+      height: 100svh;
   }
 }
 
@@ -16,14 +20,11 @@
   flex-direction: column;
   gap: 4.8rem;
 
-  @media only screen and (min-width: 768px) and (max-width: 1024px), only screen and (min-width: 1025px) {
+  @media only screen and (min-width: 1025px) {
     flex-direction: row;
   }
 }
 .hero__main {
-  @media only screen and (min-width: 768px) and (max-width: 1024px) {
-    width: 50%;
-  }
 
   @media only screen and (min-width: 1025px) {
     width: 33.33%;
@@ -79,15 +80,11 @@
 .hero__side {
   gap: clamp(2.4rem, 3vw, 3.2rem);
   align-items: start;
-  justify-content: end;
   flex-wrap: nowrap;
-
-  @media only screen and (min-width: 768px) and (max-width: 1024px) {
-    width: 50%;
-  }
 
   @media only screen and (min-width: 1025px) {
     width: 66.66%;
+    justify-content: end;
   }
 }
 
@@ -98,20 +95,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 438px;
-  width: 100%;
+  
+  @media only screen and (min-width: 1025px) {
+    max-width: 438px;
+  }
 }
 
 .hero__imageWrapper--small {
   aspect-ratio: 1 / 1;
-  max-width: 328px;
+
+  @media only screen and (min-width: 1025px) {
+    max-width: 328px;
+  }
 }
 
 .hero__image {
-  height: 63.9vh;
-  max-height: 657px;
-  height: 100%;
+  width: 100%;
+  height: auto;
   object-fit: cover;
+  max-height: 657px;
 }
 .hero__image_secondary {
   width: 100%;

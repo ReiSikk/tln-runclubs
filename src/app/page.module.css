@@ -44,7 +44,7 @@
 
 .siteTitle {
   font-family: var(--font-work-sans);
-  font-size: clamp(4rem, 6vw, 6.4rem);
+  font-size: clamp(2.4rem, 6vw, 6.4rem);
   font-weight: 600;
   line-height: 1.1;
 }

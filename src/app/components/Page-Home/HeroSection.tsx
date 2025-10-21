@@ -38,8 +38,8 @@ function HeroSection () {
               <Image 
                 src={mainImageSrc} 
                 alt={"Runners in a scenic outdoor setting"}
-                width={438}
-                height={657}
+                width={876}
+                height={1314}
                 className={styles.hero__image}
                 priority
               />
