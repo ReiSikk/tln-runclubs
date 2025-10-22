@@ -21,8 +21,8 @@ function TodaysClubsListItem({ club, formattedDays }: TodaysClubsListItemProps) 
             <div className={styles.todayClubsList__label}>
                 <ArrowUpRight className={styles.todayClubsList__linkIcon} size={24}/>
             </div>
+            {club.logo && (
             <div className={styles.todayClubsList__image}>
-                {club.logo && (
                     <Image 
                         src={urlFor(club.logo)
                         .url()}
@@ -31,8 +31,8 @@ function TodaysClubsListItem({ club, formattedDays }: TodaysClubsListItemProps) 
                         height={200}
                         className={styles.todayClubsList__img}
                     />
-                )}
             </div>
+            )}
             <div className={`${styles.todayClubsList__content} fp-col`}>
                 <div className={`${styles.todayClubsList__header} fp`}>
                     <h3 className={`${styles.todayClubsList__title} h4`}>{club.name}</h3>

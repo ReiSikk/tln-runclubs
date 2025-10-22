@@ -19,10 +19,15 @@
   border-radius: 9999px;
   border: 1px solid rgba(128, 128, 128, 0.2);
   background-color: var(--dark);
+  color: var(--white);
   padding: 8px 16px;
   font-size: 14px;
   transition: all 0.2s ease;
   cursor: pointer;
+
+  span {
+    color: var(--white);
+  }
 }
 
 .select__trigger:hover {

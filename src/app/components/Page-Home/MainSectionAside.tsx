@@ -1,5 +1,7 @@
 "use client"
 
+import { useEffect, useRef } from "react"
+
 import styles from "../../page.module.css"
 // Components
 import AllClubsList from './Section-AllClubs/AllClubsList'
@@ -29,6 +31,18 @@ function HomeMainAside({
   searchTerm,
   onSearchChange
 }: HomeMainAsideProps) {
+
+  // Scroll to top of list when city changes
+  const clubsListRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (clubsListRef.current) {
+      clubsListRef.current.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'start' 
+      })
+    }
+  }, [selectedCity])
 
   // Handle search input
  const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -79,7 +93,7 @@ function HomeMainAside({
   return (
     <aside className={`${styles.mainSection__side} col-m-12 col-t-7 col-d-8`}>
         <h3 className={`${styles.side__title} h3`}>{selectedCity === 'all' ? 'Run clubs in Estonia' : `Run clubs in ${selectedCity}`}<span className={`${styles.side__count}`}>{getFilteredClubsCount()}</span></h3>
-        <div className={`${styles.side__filters} fp`}>
+        <div className={`${styles.side__filters} fp`} ref={clubsListRef}>
           <SearchBar inputHandler={inputHandler} />
           <FilterSelect 
             value={selectedCity} 

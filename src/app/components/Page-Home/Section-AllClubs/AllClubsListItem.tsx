@@ -37,23 +37,25 @@ function AllClubsListItem({ club }: { club: RunClub }) {
             </div>
 
         ) : (
-             <Image
-              unoptimized
-              src="https://placehold.co/128x128/svg?text=No+logo+found"
-              alt={`${club.name} logo`}
-              width={128}
-              height={128}
-              className={styles.allClubsList__image}
-              priority
-            />
+            <div className={styles.allClubsList__imageWrapper}>
+              <Image
+                unoptimized
+                src="https://placehold.co/128x128/svg?text=No+logo+found"
+                alt={`${club.name} logo`}
+                width={128}
+                height={128}
+                className={styles.allClubsList__image}
+                priority
+              />
+            </div>
         )}
         <div className={`${styles.allClubsList__info} fp-col`}>
           <h4 className=''>
             {club.name}
           </h4>
             <div role="button" className={`${styles.allClubsList__btn} btn_small btn-txt-anim`} aria-label="Go to run club page to see more info">
-              <span className="txt-main">Learn more <LucideArrowUpRight width={24} height={24} /></span>
-              <span className="txt-hovered">Learn more <LucideArrowUpRight width={24} height={24} /></span>
+              <span className="txt-main">View <LucideArrowUpRight width={24} height={24} /></span>
+              <span className="txt-hovered">View <LucideArrowUpRight width={24} height={24} /></span>
             </div>
         </div>
       </Link>
