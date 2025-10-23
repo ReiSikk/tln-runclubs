@@ -15,12 +15,18 @@ test.describe('Club Filtering', () => {
     await filterSelect.click();
     
     // Select Tallinn
-    const option__tallinn = page.locator('[class*="select__option"]>span', { hasText: 'Tallinn' }).first();
-    await option__tallinn.click();
+    const tallinnOption = page.locator('[class*="select__option"]>span', { hasText: 'Tallinn' }).first();
+    await expect(tallinnOption).toBeVisible();
+    await expect(tallinnOption).toBeEnabled();
+
+    // Click the option
+    await tallinnOption.click();
     
     // Verify count changed
     const filteredCount = await page.getByTestId('club-link').count();
-    expect(filteredCount).toBeLessThan(initialCount);
+    await expect(async () => {
+      expect(filteredCount).toBeLessThan(initialCount);
+    }).toPass({ timeout: 5000 });
     
     // Verify title updated
     await expect(page.getByRole('heading', { name: /Run clubs in Tallinn/i })).toBeVisible();
@@ -51,7 +57,10 @@ test.describe('Club Filtering', () => {
     const filteredCount = await clubLinks.count();
     console.log('Filtered clubs count:', filteredCount);
     
-    expect(filteredCount).toBeGreaterThan(0);
+    await expect(async () => {
+      expect(filteredCount).toBeGreaterThan(0);
+    }).toPass({ timeout: 5000 });
+    
     
     // Verify the visible club contains the search term
     const firstClubText = await clubLinks.first().textContent();
@@ -73,8 +82,9 @@ test.describe('Club Filtering', () => {
     await page.waitForSelector('[class*="select__option"]', { state: 'visible' });
     
     // Select Tartu city filter
-    const option__tartu = page.locator('[class*="select__option"]>span', { hasText: 'Tartu' }).first();
-    await option__tartu.click();
+   const tartuOption = page.locator('[class*="select__option"]>span', { hasText: 'Tartu' }).first();
+    await expect(tartuOption).toBeVisible();
+    await expect(tartuOption).toBeEnabled();
     
     // Wait for filter to apply
     await page.waitForTimeout(300);
@@ -84,15 +94,15 @@ test.describe('Club Filtering', () => {
     await searchInput.clear();
     await searchInput.pressSequentially('6:45', { delay: 100 });
     
-    // Wait for search to apply
-    await page.waitForTimeout(300);
-    
     // Verify results
     const clubs = page.getByTestId('club-link');
     const count = await clubs.count();
     
     // Should have 0 or more results (might not have clubs matching "6:45" in Tartu)
-    expect(count).toBe(1);
+    await expect(async () => {
+      const count = await clubs.count();
+      expect(count).toBe(1);
+    }).toPass({ timeout: 5000 });
   });
 
   test('should show no results when filter returns nothing', async ({ page }) => {
@@ -113,6 +123,9 @@ test.describe('Club Filtering', () => {
     const count = await clubs.count();
     
     console.log('No results count:', count);
-    expect(count).toBe(0);
+    await expect(async () => {
+    const count = await clubs.count();
+      expect(count).toBe(0);
+    }).toPass({ timeout: 5000 });
   });
 });
