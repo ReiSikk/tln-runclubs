@@ -17,7 +17,7 @@ function TodaysClubsListItem({ club, formattedDays }: TodaysClubsListItemProps) 
 
   return (
     <li className={`${styles.todayClubsList__item} fp`}>
-        <Link className={styles.todayClubsList__link} href={`/runclubs/${slug}`} aria-label={`View more details about ${club.name} run club`}>
+        <Link className={styles.todayClubsList__link} href={`/runclubs/${slug}`} aria-label={`View more details about ${club.name} run club`} data-testid="club-link">
             <div className={styles.todayClubsList__label}>
                 <ArrowUpRight className={styles.todayClubsList__linkIcon} size={24}/>
             </div>

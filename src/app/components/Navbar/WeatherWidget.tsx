@@ -103,7 +103,7 @@ export default function WeatherWidget() {
 
 
   return (
-    <div className={`${styles.weatherWidget} ${isVisible ? styles.visible : ''}`}>
+    <div className={`${styles.weatherWidget} ${isVisible ? styles.visible : ''}`} data-testid="weather-widget">
       Feels like {data.current.windchill_c}°C in {userCity || "your location"} | {data.current.condition.text}
       <Image
         src={data.current.condition.icon ? `https:${data.current.condition.icon}` : "https://placehold.co/16x16"}
