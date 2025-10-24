@@ -697,6 +697,7 @@ ol {
       margin-top: 0;
       text-decoration: none;
       text-transform: none;
+      color: var(--dark);
     }
   }
 }
