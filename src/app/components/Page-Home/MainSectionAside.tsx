@@ -104,7 +104,6 @@ function HomeMainAside({
         </div>
         <AllClubsList 
           clubs={filteredClubs} 
-          searchTerm={searchTerm} 
           isLoading={isLoading} 
           isError={isError} 
         />

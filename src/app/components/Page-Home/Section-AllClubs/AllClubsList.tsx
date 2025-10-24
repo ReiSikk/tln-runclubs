@@ -3,7 +3,7 @@ import { RunClub } from '../../../lib/types'
 import styles from "../../../page.module.css"
 import { Search } from 'lucide-react';
 
-function AllClubsList({clubs, searchTerm, isLoading, isError, }: { searchTerm: string; clubs: RunClub[], isLoading: boolean; isError: boolean }) {
+function AllClubsList({clubs, isLoading, isError, }: { clubs: RunClub[], isLoading: boolean; isError: boolean }) {
 
   if (isLoading) {
     return (
@@ -26,7 +26,7 @@ function AllClubsList({clubs, searchTerm, isLoading, isError, }: { searchTerm: s
   }
   
   return (
-    <ul className={`${styles.allClubsList} list-grid`}>
+    <ul className={`${styles.allClubsList} list-grid`} data-testid="all-clubs-section">
       {clubs.length > 0 ? (
         clubs.map(club => (
           <AllClubsListItem key={club._id} club={club} />

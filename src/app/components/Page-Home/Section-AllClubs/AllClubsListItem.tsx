@@ -22,7 +22,7 @@ function AllClubsListItem({ club }: { club: RunClub }) {
 
   return (
      <li className={styles.allClubsList__item}>
-        <Link href={`runclubs/${slug}`} className={`${styles.allClubsList__link} fp-col`}>
+        <Link href={`runclubs/${slug}`} className={`${styles.allClubsList__link} fp-col`}  data-testid="club-link">
           {logo ? (
             <div className={styles.allClubsList__imageWrapper}>
               <Image
