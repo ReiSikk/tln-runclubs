@@ -3,10 +3,6 @@ import MainSection from "./components/Page-Home/MainSection";
 import HeroSection  from "./components/Page-Home/HeroSection";
 import CtaSection from "./components/Page-Home/CtaSection";
 import WeatherWidget from "./components/Navbar/WeatherWidget";
-// Sanity
-import sanityClient from "../sanity/client";
-// Types
-import { RunClub } from "./lib/types";
 // Styles
 import styles from "./page.module.css";
 // TanStack Query
@@ -15,14 +11,7 @@ import {
   HydrationBoundary,
   QueryClient,
 } from '@tanstack/react-query'
-
-const postsQuery = `*[_type == "runClub"] | order(orderRank)`
-const options = { next: { revalidate: 30 } };
-
-// Fetch all run clubs from Sanity
-export async function getRunClubs(): Promise<RunClub[]> {
-  return await sanityClient.fetch<RunClub[]>(postsQuery, {}, options);
-}
+import { getRunClubs } from "./lib/queries/runClubs";
 
 export default async function Home() {
   const queryClient = new QueryClient()

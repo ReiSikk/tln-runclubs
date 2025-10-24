@@ -1,12 +1,7 @@
 'use client';
 
 import { useQuery } from '@tanstack/react-query';
-import { RunClub } from '../types';
-import sanityClient from '@/sanity/client';
-
-async function getRunClubs(): Promise<RunClub[]> {
-  return await sanityClient.fetch(`*[_type == "runClub"] | order(orderRank)`);
-}
+import { getRunClubs } from '../queries/runClubs';
 
 export default function useRunClubs() {
   return useQuery({
