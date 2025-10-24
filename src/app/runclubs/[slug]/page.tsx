@@ -5,18 +5,11 @@ import Image from 'next/image';
 import CtaSection from '@/app/components/Page-Home/CtaSection';
 import NavBar from '@/app/components/Navbar/NavBar';
 import { LucideLink, LucideMoveLeft } from 'lucide-react';
-// Types
-import { RunClub } from '@/app/lib/types';
 // Sanity
-import sanityClient  from '@/sanity/client'
 import { urlFor } from "@/sanity/client";
+// Queries
+import { getCurrentRunClub } from '../../lib/queries/currentClub';
 
-
-
-async function getCurrentRunClub(slug: string): Promise<RunClub | null> {
-  const query = `*[_type == "runClub" && slug.current == $slug][0]`;
-  return await sanityClient.fetch(query, { slug }, { next: { revalidate: 30 } });
-}
 
 async function SingleRunClubPage({ params }: { params: { slug: string } }) {
   const { slug } = await params;

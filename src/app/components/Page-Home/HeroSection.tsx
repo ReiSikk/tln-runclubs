@@ -41,7 +41,7 @@ function HeroSection () {
                 width={876}
                 height={1314}
                 className={styles.hero__image}
-                priority
+                fetchPriority="high"
               />
             ) : (
               <div>
