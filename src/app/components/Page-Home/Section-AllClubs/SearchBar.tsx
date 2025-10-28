@@ -1,10 +1,16 @@
 import React from 'react'
-import styles from '@/app/page.module.css'
+import styles from './SearchBar.module.css'
 import { Search } from 'lucide-react'
 
-function SearchBar({ inputHandler }: { inputHandler: (e: React.ChangeEvent<HTMLInputElement>) => void }) {
+interface SearchBarProps {
+  inputHandler: (e: React.ChangeEvent<HTMLInputElement>) => void
+  clearInput: () => void,
+  searchTerm: string
+}
+
+function SearchBar({ inputHandler, clearInput, searchTerm }: SearchBarProps) {
   return (
-   <form role="search" aria-labelledby="clubs-search-label" className={styles.side__searchbar}>
+   <form role="search" aria-labelledby="clubs-search-label" className={styles.side__SearchForm}>
   <label id="clubs-search-label" htmlFor="clubs-search" className="txt-label sr-only">
     Search run clubs
   </label>
@@ -22,12 +28,22 @@ function SearchBar({ inputHandler }: { inputHandler: (e: React.ChangeEvent<HTMLI
       name="q"
       type="search"
       placeholder="Search clubs"
-      className={`${styles.searchField__input} h5`}
+      className={`${styles.searchField__input} h6`}
       autoComplete="off"
       enterKeyHint="search"
       onChange={inputHandler}
+      value={searchTerm}
       data-umami-event="Clicked on SearchBar"
     />
+     <div
+      role="button" 
+      className={`${styles.searchField__clear} btn_small btn-txt-anim`} 
+      aria-label="Clear search input"
+      onClick={clearInput}
+      >
+      <span className="txt-main h6">Clear</span>
+      <span className="txt-hovered h6">Clear</span>
+    </div>
   </div>
 </form>
   )

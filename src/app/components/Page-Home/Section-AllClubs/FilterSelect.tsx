@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react"
 import { Check, ChevronDown } from "lucide-react"
-import styles from "./filter-select.module.css"
+import styles from "./FilterSelect.module.css"
 
 interface FilterSelectProps {
   value: string
@@ -44,7 +44,7 @@ export function FilterSelect({
         className={`${styles.select__trigger} ${isOpen ? styles["select__trigger--open"] : ""}`}
       >
         <span
-          className={`${styles.select__triggerText} ${!selectedOption ? styles["select__triggerText--placeholder"] : ""}`}
+          className={`${styles.select__triggerText} ${!selectedOption ? styles["select__triggerText--placeholder"] : ""} h6`}
         >
           {selectedOption ? selectedOption.label : placeholder}
         </span>
@@ -69,7 +69,7 @@ export function FilterSelect({
                   <span className={styles.select__optionCount}>({option.count})</span>
                 )}
                 </span>
-              {value === option.value && <Check className={styles.select__checkIcon} />}
+              {value === option.value && <Check height={16} width={16}/>}
             </button>
           ))}
         </div>

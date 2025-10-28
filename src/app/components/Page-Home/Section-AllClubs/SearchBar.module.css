@@ -1,0 +1,38 @@
+/* ==========================================================================
+   Search bar styles
+   ========================================================================== */
+
+.side__SearchForm {
+    flex: 70%;
+    min-width: 0;
+}
+.searchField {
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  gap: 8px;
+  border: 1px solid var(--cream);
+  border-radius: 999px;
+  padding-inline: 16px 8px;
+  min-width: none;
+}
+.searchField__icon {
+  position: absolute;
+  left: 16px;
+}
+.searchField__input {
+  border: none;
+  outline: none;
+  background: transparent;
+  margin-left: 30px;
+  padding-block: 16px;
+  flex-grow: 1;
+  min-width: 0;
+}
+.searchField__clear {
+  min-width: fit-content;
+  background: var(--accent);
+  color: var(--dark);
+  border: none;
+}

@@ -1,7 +1,6 @@
 .select {
   position: relative;
   width: 100%;
-  max-width: 450px;
 
   @media only screen and (min-width: 768px) and (max-width: 1024px), only screen and (min-width: 1025px) {
       width: fit-content;
@@ -11,7 +10,7 @@
 
 .select__trigger {
   display: flex;
-  height: 48px;
+  height: 51px;
   width: 100%;
   min-width: 125px;
   align-items: center;
@@ -66,7 +65,7 @@
 .select__icon {
   width: 16px;
   height: 16px;
-  color: rgba(128, 128, 128, 0.6);
+  color: var(--cream);
   transition: transform 0.3s ease;
 }
 

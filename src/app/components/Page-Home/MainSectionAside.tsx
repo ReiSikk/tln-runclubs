@@ -89,12 +89,17 @@ function HomeMainAside({
 
     return searchFiltered.length;
   };
+  
 
+  // Clear search input
+  const clearInput = () => {
+    onSearchChange('');
+  };
   return (
-    <aside className={`${styles.mainSection__side} col-m-12 col-t-7 col-d-8`}>
+    <aside className={`${styles.mainSection__side} col-m-12 col-t-8 col-d-8`}>
         <h3 className={`${styles.side__title} h3`}>{selectedCity === 'all' ? 'Run clubs in Estonia' : `Run clubs in ${selectedCity}`}<span className={`${styles.side__count}`}>{getFilteredClubsCount()}</span></h3>
         <div className={`${styles.side__filters} fp`} ref={clubsListRef}>
-          <SearchBar inputHandler={inputHandler} />
+          <SearchBar inputHandler={inputHandler} clearInput={clearInput} searchTerm={searchTerm} />
           <FilterSelect 
             value={selectedCity} 
             onValueChange={onCityChange} 
