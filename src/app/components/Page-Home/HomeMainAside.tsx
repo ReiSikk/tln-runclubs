@@ -34,8 +34,14 @@ function HomeMainAside({
 
   // Scroll to top of list when city changes
   const clubsListRef = useRef<HTMLDivElement>(null)
-
+  const isFirstRender = useRef(true) // prevent scroll to allClubsList top on initial mount
+  
   useEffect(() => {
+     // Skip scroll on initial mount
+    if (isFirstRender.current) {
+      isFirstRender.current = false
+      return
+    }
     if (clubsListRef.current) {
       clubsListRef.current.scrollIntoView({ 
         behavior: 'smooth', 
