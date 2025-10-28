@@ -1,13 +1,18 @@
 "use client";
 
+// Styles
 import styles from './TodayClubsList.module.css';
+// Components
 import TodaysClubsListItem from './TodayClubsListItem';
+// Utils
 import { convertDaysToAbbs } from "@/app/lib/utils/convertDays";
+// Types
 import { RunClub } from '@/app/lib/types';
+// Icons
 import { Search } from 'lucide-react';
 
 interface TodayClubsListProps {
-  clubs: RunClub[];
+  todaysClubs: RunClub[];
   isLoading: boolean;
   isError: boolean;
 }
@@ -16,7 +21,7 @@ export type FormattedRunClub = Omit<RunClub, 'days'> & {
   days: string;
 };
 
-export function TodayClubsList({ clubs, isLoading, isError  }: TodayClubsListProps) {
+export function TodayClubsList({ todaysClubs, isLoading, isError  }: TodayClubsListProps) {
 
   if (isLoading) {
     return <div className={`${styles.todayClubsList} loading`}>Loading clubs...</div>
@@ -25,16 +30,6 @@ export function TodayClubsList({ clubs, isLoading, isError  }: TodayClubsListPro
   if (isError) {
     return <div className={`${styles.todayClubsList} error`}>Error loading clubs</div>
   }
-
-  const today = new Date().toLocaleString('en-US', { weekday: 'long' }).toLowerCase();
-  
-  // Filter clubs that run today
-  const todaysClubs = clubs.filter(club => 
-    club.days && club.days.some(day => 
-      day.toLowerCase().includes(today) ||
-      day.toLowerCase().includes(today.substring(0, 3)) // Check for abbreviations too
-    )
-  );
 
   // Format the clubs
 const formattedClubs: FormattedRunClub[] = todaysClubs.map((club: RunClub): FormattedRunClub => ({

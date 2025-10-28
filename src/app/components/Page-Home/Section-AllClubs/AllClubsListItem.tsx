@@ -1,9 +1,14 @@
 import React from 'react'
-import styles from '@/app/page.module.css'
+// Next.js
 import Image from 'next/image'
 import Link from 'next/link'
-import { RunClub } from '@/app/lib/types'
+// Sanity
 import { urlFor } from "@/sanity/client";
+// Styles
+import styles from '@/app/page.module.css'
+// Types
+import { RunClub } from '@/app/lib/types'
+// Icons
 import { LucideArrowUpRight } from 'lucide-react'
 
 

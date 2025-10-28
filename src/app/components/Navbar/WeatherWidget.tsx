@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import styles from '@/app/page.module.css'
+// Styles
+import styles from './WeatherWidget.module.css'
 
 interface WeatherData {
   city: string;

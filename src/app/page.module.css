@@ -12,34 +12,6 @@
 }
 
 /*
-   Site top navigation and weather widget
-   ========================================================================== */
-.weatherWidget {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  justify-content: flex-end;
-  font-family: var(--font-work-sans);
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: var(--cream);
-  width: fit-content;
-
-  opacity: 0;
-  transform: translateX(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-
-  &.visible {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  @media only screen and (min-width: 768px) and (max-width: 1024px), only screen and (min-width: 1025px) {
-    margin-left: auto;
-  }
-}
-
-/*
    Site header
    ========================================================================== */
 
@@ -57,17 +29,14 @@
   font-weight: 600;
   line-height: 1.1;
 }
-.main {
-}
+/*
+   Main Section main
+   ========================================================================== */
 .mainSection {
   padding-top: 32px;
   width: 100%;
   max-width: 1440px;
   margin-inline: auto;
-}
-.mainSection__main {
-}
-.mainSection__title {
 }
 .clubsList {
   margin-top: 24px;
@@ -110,10 +79,7 @@
   font-size: 1.8rem;
   margin-bottom: 16px;
 }
-.item__area {
-}
-.item__days {
-}
+
 .mainSection__side {
   margin-top: 48px;
 
@@ -127,9 +93,8 @@
   flex-wrap: wrap-reverse;
   gap: 24px;
 
-  form {
-    flex: 1;
-    max-width: 450px;
+  @media only screen and (min-width: 768px) and (max-width: 1024px), only screen and (min-width: 1025px) {
+      flex-wrap: nowrap;
   }
 }
 .side__title {
@@ -153,37 +118,28 @@
   min-width: 37px;
   min-height: 20px;
 }
-/* Search bar */
-.searchField {
-  position: relative;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
-  border: 1px solid var(--cream);
-  border-radius: 999px;
-  padding-inline: 16px 8px;
-  padding-block: 9px 12px;
-}
-.searchField__icon {
-  position: absolute;
-  left: 16px;
-}
-.searchField__input {
-  border: none;
-  outline: none;
-  background: transparent;
-  margin-left: 30px;
-  flex-grow: 1;
-}
+
+/*
+   All clubs list
+   ========================================================================== */
 
 .allClubsList {
   margin-top: 24px;
   gap: 1.2rem;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
+
+  @media only screen and (min-width: 375px) {
+    grid-template-columns: 1fr 1fr;
+  }
 
   @media only screen and (min-width: 1280px) {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+/* allClubsList has a child element with class noResults */
+.allClubsList:has(.noResults) {
+  grid-template-columns: 1fr;
 }
 .allClubsList__item {
   background-color: #292929;
