@@ -1,7 +1,9 @@
+import Image from 'next/image';
+// Styles
 import styles from './HeroSection.module.css';
+// Assets
 import mainImageSrc from '@/app/assets/hero__main.webp';
 import secondaryImageSrc from '@/app/assets/hero__secondary.webp';
-import Image from 'next/image';
 
 function HeroSection () {
   return (

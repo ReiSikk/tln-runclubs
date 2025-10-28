@@ -1,6 +1,10 @@
-import AllClubsListItem from '../Section-AllClubs/AllClubsListItem'
-import { RunClub } from '../../../lib/types'
+// Styles
 import styles from "../../../page.module.css"
+// Components
+import AllClubsListItem from '../Section-AllClubs/AllClubsListItem'
+// Types
+import { RunClub } from '../../../lib/types'
+// Icons
 import { Search } from 'lucide-react';
 
 function AllClubsList({clubs, isLoading, isError, }: { clubs: RunClub[], isLoading: boolean; isError: boolean }) {

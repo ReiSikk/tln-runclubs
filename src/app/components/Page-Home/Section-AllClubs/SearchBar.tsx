@@ -1,5 +1,7 @@
 import React from 'react'
+// Styles
 import styles from './SearchBar.module.css'
+// Icons
 import { Search } from 'lucide-react'
 
 interface SearchBarProps {

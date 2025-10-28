@@ -2,11 +2,14 @@
 
 import React from 'react'
 import { useEffect, useState } from 'react'
+// Next.js
 import Image from 'next/image';
 import Link from 'next/link';
-import { LucideMoveLeft } from 'lucide-react';
+// Components
 import WeatherWidget from '@/app/components/Navbar/WeatherWidget';
+// Assets
 import LogoImg from '@/app/assets/runclubs__logo.svg';
+import { LucideMoveLeft } from 'lucide-react';
 
 function NavBar() {
     const [isScrolled, setScrolled] = useState(false);

@@ -1,10 +1,15 @@
 import React from 'react'
-import { ArrowUpRight, Clock } from 'lucide-react';
-import styles from './TodayClubsList.module.css';
-import { RunClub } from '@/app/lib/types';
+// Next.js
 import Link from 'next/link';
 import Image from 'next/image';
+// Styles
+import styles from './TodayClubsList.module.css';
+// Sanity
 import { urlFor } from '@/sanity/client';
+// Types
+import { RunClub } from '@/app/lib/types';
+// Icons
+import { ArrowUpRight, Clock } from 'lucide-react';
 
 
 interface TodaysClubsListItemProps {

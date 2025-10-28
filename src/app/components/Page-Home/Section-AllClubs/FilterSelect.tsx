@@ -1,8 +1,10 @@
 "use client"
 
 import React, { useEffect } from "react"
-import { Check, ChevronDown } from "lucide-react"
+// Styles
 import styles from "./FilterSelect.module.css"
+// Icons
+import { Check, ChevronDown } from "lucide-react"
 
 interface FilterSelectProps {
   value: string
