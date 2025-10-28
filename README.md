@@ -1,36 +1,60 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🏃‍♂️ Run Clubs Estonia
 
-## Getting Started
+A web app for discovering running clubs across Estonia. Built to help runners find their community, whether training for a 5K or looking for weekly running buddies. This project is a work in progress and will be developed further in the future.
 
-First, run the development server:
+**Live site:** [runclubs.ee](https://runclubs.ee)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎯 Project Purpose
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This project started as a personal initiative to solve a real problem: finding local running clubs in Estonia wasn't easy. I wanted to create a centralized, user-friendly platform where runners could quickly discover clubs by city, search by name, and see which clubs are running today. Right now all these running clubs are on different platforms and are tough to find. 
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+I handled everything from concept to design, development, testing, and infrastructure. It was my first time implementing E2E tests into a fully automated CI/CD pipeline managed through Netlify and Github Actions. 
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠️ Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Core
+- **Next.js 15**
+- **TypeScript**
+- **React 19**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Content & Data
+- **Sanity CMS** - Headless CMS for club data management
+- **TanStack Query** - Server state management, caching, prefetching
 
-## Deploy on Vercel
+### Styling
+- **CSS Modules** - Component-scoped styling
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Testing & Quality
+- **Playwright** - End-to-end testing across Chromium, Firefox, and WebKit
+- **GitHub Actions** - Automated CI/CD pipeline
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Deployment & Analytics
+- **Netlify** - Hosting, deploy previews, serverless functions
+- **Umami Analytics** - Privacy-friendly analytics
+---
+
+## ✨ Key Features
+
+- 🔍 **Search & Filter** - Find clubs by name or filter by city
+- 📅 **Today's Clubs** - See which clubs are running today
+- 🎨 **Responsive Design** - Works beautifully on mobile, tablet, and desktop
+- ⚡ **Fast Performance** - SSR, image optimization, smart caching
+- 🚀 **CI/CD Pipeline** - Automated testing and deployment - E2E tests run on every pull request to the main branch, branch is merged only if all tests pass. Push to 'main' triggers new deploy on Netlify. 
+- 🔒 **Branch Protection** - Tests must pass before merging to main
+
+---
+
+## 🏗️ Architecture Highlights
+
+### Server + Client Rendering Strategy
+- Server Components for initial data fetching (SEO-friendly, fast FCP)
+- Client Components for interactive filtering/searching
+- TanStack Query for managing data fetching states.
+
+### Testing Philosophy
+- Tests run on every PR (required status check)
+- Cross-browser compatibility verified
